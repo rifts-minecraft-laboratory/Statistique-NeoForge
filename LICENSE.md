@@ -1,12 +1,10 @@
-This is a template license intended for Minecraft projects. Each author using this license remains solely responsible for ensuring its suitability to their own legal context.
-
 # Rift Minecraft Modding License v1.0
 
-**This license concerns:** *PROJECT NAME*
+**This license concerns:** *Statistique*
 
-**GitHub Repository:** *LINK*
+**GitHub Repository:** *https://github.com/rifts-minecraft-laboratory/Statistique-NeoForge*
 
-This license applies to *PROJECT NAME*, including its source code, compiled software, configuration files, assets, and any other files contained in this repository, unless explicitly stated otherwise.
+This license applies to *Statistique*, including its source code, compiled software, configuration files, assets, and any other files contained in this repository, unless explicitly stated otherwise.
 
 It governs all uses of this project within the Minecraft Environment, including, without limitations:
 
@@ -46,13 +44,13 @@ You are **free to use, copy, modify, and distribute** this software (including u
 
 - You must **retain this license** in all distributed copies, including modified or integrated versions;
 - You must **credit the original author and project**, visibly and reasonably (e.g. in the mod description, documentation, or credits);
-- You must include a **reference to the GitHub repository**: *LINK*
+- You must include a **reference to the GitHub repository**: *https://github.com/rifts-minecraft-laboratory/Statistique-NeoForge*
 
 ___
 
 ## Economic Rights and Monetization
 
-This license grants users limited rights to use, modify, and distribute this project under the terms set out above.  
+This license grants users limited rights to use, modify, and distribute this project under the terms set out above.
 
 It is a license of use only and **does not transfer any intellectual property rights** to the user.
 
@@ -64,13 +62,13 @@ The author, **Noah Boos (Rift) (Propzonzon)**, remains the **sole and permanent 
 
 Within these limits:
 
-- You **cannot sell** this project’s source code, in whole or in part, in **its original form or with only non-substantial modifications** (such as minor rebranding or minimal code changes);  
-- You **cannot commercialize derivative works** that are primarily composed of this project’s source code — meaning that most of the functionality, assets, or architecture originates from this project — without **explicit permission** from **Noah Boos (Rift) (Propzonzon)**;  
+- You **cannot sell** this project’s source code, in whole or in part, in **its original form or with only non-substantial modifications** (such as minor rebranding or minimal code changes);
+- You **cannot commercialize derivative works** that are primarily composed of this project’s source code — meaning that most of the functionality, assets, or architecture originates from this project — without **explicit permission** from **Noah Boos (Rift) (Propzonzon)**;
 - You **may monetize services** (e.g. *Minecraft* servers, modpacks, or custom integrations) that include the compiled mod/plugin, **as long as** the **software itself is not the main value** being sold.
 
 **Examples:**
 
-- ✅ Hosting a *Minecraft* server with this mod installed and offering paid access is permitted.  
+- ✅ Hosting a *Minecraft* server with this mod installed and offering paid access is permitted.
 - ❌ Selling the mod file or selling early access to it is not.
 
 ___
@@ -79,8 +77,8 @@ ___
 
 In accordance with the French *Code de la Propriété Intellectuelle*, the author retains **inalienable moral rights**, including in particular:
 
-- the **right of authorship** (*droit de paternité*) — the right to be identified as the creator of the work in any distribution or public use of this project;  
-- the **right to the integrity of the work** (*droit au respect de l’œuvre*) — the right to object to any distortion, mutilation, or modification that would harm the spirit, quality, or reputation of the work;  
+- the **right of authorship** (*droit de paternité*) — the right to be identified as the creator of the work in any distribution or public use of this project;
+- the **right to the integrity of the work** (*droit au respect de l’œuvre*) — the right to object to any distortion, mutilation, or modification that would harm the spirit, quality, or reputation of the work;
 - the **right of disclosure** (*droit de divulgation*) — the right to decide when and under which conditions the work is first made available to the public.
 
 These moral rights are **perpetual, inalienable, and enforceable** under French law, and they remain applicable **regardless of the economic terms or permissions** granted by this license.
@@ -89,7 +87,7 @@ ___
 
 ## Branding and Identity
 
-The **name, presentation, and identity** of *PROJECT NAME* are protected as an expression of the author’s creative work.
+The **name, presentation, and identity** of *Statistique* are protected as an expression of the author’s creative work.
 
 You may not present derivative versions in a way that implies endorsement or authorship by **Noah Boos (Rift) (Propzonzon)** without **explicit written consent**.
 
