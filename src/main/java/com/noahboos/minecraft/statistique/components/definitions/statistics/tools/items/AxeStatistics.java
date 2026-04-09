@@ -19,6 +19,11 @@ public class AxeStatistics extends ToolCore {
         super(getDefaultStatistics());
     }
 
+    @Override
+    protected AxeStatistics create(Map<String, Statistic> statistics) {
+        return new AxeStatistics(statistics);
+    }
+
     private static Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(new ToolCore().toMap());
         statistics.put(StatisticType.STRIPPED_BLOCKS.getName(), StatisticType.STRIPPED_BLOCKS.getNewStatistic());
@@ -30,10 +35,6 @@ public class AxeStatistics extends ToolCore {
         statistics.putAll(map);
         return new AxeStatistics(statistics);
     }
-
-//    private Map<String, Statistic> toMap() {
-//        return new HashMap<>(statistics);
-//    }
 
     @Override
     public boolean equals(Object o) {

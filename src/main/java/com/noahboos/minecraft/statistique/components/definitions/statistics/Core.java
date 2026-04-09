@@ -21,6 +21,10 @@ public class Core {
         ));
     }
 
+    protected Core create(Map<String, Statistic> statistics) {
+        return new Core(statistics);
+    }
+
     public Statistic getStatistic(String name) {
         return statistics.get(name);
     }
@@ -35,7 +39,7 @@ public class Core {
             newStatistics.put(name, statistic.withValue(value));
         }
 
-        return new Core(newStatistics);
+        return create(newStatistics);
     }
 
     public Core incrementStatistic(String name, float value) {

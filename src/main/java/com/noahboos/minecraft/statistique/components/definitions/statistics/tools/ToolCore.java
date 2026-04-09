@@ -19,6 +19,11 @@ public class ToolCore extends Core {
         super(getDefaultStatistics());
     }
 
+    @Override
+    protected ToolCore create(Map<String, Statistic> statistics) {
+        return new ToolCore(statistics);
+    }
+
     private static Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(new Core().toMap());
         statistics.put(StatisticType.MINED_BLOCKS.getName(), StatisticType.MINED_BLOCKS.getNewStatistic());
@@ -30,10 +35,6 @@ public class ToolCore extends Core {
         statistics.putAll(map);
         return new ToolCore(statistics);
     }
-
-//    private Map<String, Statistic> toMap() {
-//        return statistics;
-//    }
 
     @Override
     public boolean equals(Object o) {
