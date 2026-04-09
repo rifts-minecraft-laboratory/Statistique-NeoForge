@@ -11,21 +11,37 @@ import java.util.Map;
 public class ToolCore extends Core {
     public static final Codec<ToolCore> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(ToolCore::fromMap, ToolCore::toMap);
 
+    protected ToolCore(Map<String, Statistic> statistics) {
+        super(statistics);
+    }
+
     public ToolCore() {
-        super();
-        this.statistics.put(
-            StatisticType.MINED_BLOCKS.getName(),
-            StatisticType.MINED_BLOCKS.getNewStatistic()
-        );
+        super(getDefaultStatistics());
+    }
+
+    private static Map<String, Statistic> getDefaultStatistics() {
+        Map<String, Statistic> statistics = new HashMap<>(new Core().toMap());
+        statistics.put(StatisticType.MINED_BLOCKS.getName(), StatisticType.MINED_BLOCKS.getNewStatistic());
+        return statistics;
     }
 
     private static ToolCore fromMap(Map<String, Statistic> map) {
-        ToolCore toolCore = new ToolCore();
-        toolCore.statistics.putAll(map);
-        return toolCore;
+        Map<String, Statistic> statistics = new HashMap<>(new ToolCore().statistics);
+        statistics.putAll(map);
+        return new ToolCore(statistics);
     }
 
-    private Map<String, Statistic> toMap() {
-        return new HashMap<>(statistics);
+//    private Map<String, Statistic> toMap() {
+//        return statistics;
+//    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }

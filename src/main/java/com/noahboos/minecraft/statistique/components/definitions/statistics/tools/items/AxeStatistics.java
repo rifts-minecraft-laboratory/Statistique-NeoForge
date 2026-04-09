@@ -11,21 +11,37 @@ import java.util.Map;
 public class AxeStatistics extends ToolCore {
     public static final Codec<AxeStatistics> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(AxeStatistics::fromMap, AxeStatistics::toMap);
 
+    protected AxeStatistics(Map<String, Statistic> statistics) {
+        super(statistics);
+    }
+
     public AxeStatistics() {
-        super();
-        this.statistics.put(
-            StatisticType.STRIPPED_BLOCKS.getName(),
-            StatisticType.STRIPPED_BLOCKS.getNewStatistic()
-        );
+        super(getDefaultStatistics());
+    }
+
+    private static Map<String, Statistic> getDefaultStatistics() {
+        Map<String, Statistic> statistics = new HashMap<>(new ToolCore().toMap());
+        statistics.put(StatisticType.STRIPPED_BLOCKS.getName(), StatisticType.STRIPPED_BLOCKS.getNewStatistic());
+        return statistics;
     }
 
     private static AxeStatistics fromMap(Map<String, Statistic> map) {
-        AxeStatistics axeStatistics = new AxeStatistics();
-        axeStatistics.statistics.putAll(map);
-        return axeStatistics;
+        Map<String, Statistic> statistics = new HashMap<>(new AxeStatistics().statistics);
+        statistics.putAll(map);
+        return new AxeStatistics(statistics);
     }
 
-    private Map<String, Statistic> toMap() {
-        return new HashMap<>(statistics);
+//    private Map<String, Statistic> toMap() {
+//        return new HashMap<>(statistics);
+//    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
     }
 }
