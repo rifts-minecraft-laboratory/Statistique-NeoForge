@@ -9,6 +9,13 @@ public class Core {
     protected final Map<String, Statistic> statistics = new HashMap<>();
     public static final Codec<Core> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(Core::fromMap, Core::toMap);
 
+    public Core() {
+        this.statistics.put(
+            StatisticType.USED_DURABILITY.getName(),
+            StatisticType.USED_DURABILITY.getNewStatistic()
+        );
+    }
+
     public Statistic getStatistic(String name) {
         return statistics.get(name);
     }
