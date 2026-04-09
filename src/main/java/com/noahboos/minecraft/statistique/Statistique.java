@@ -1,5 +1,6 @@
 package com.noahboos.minecraft.statistique;
 
+import com.noahboos.minecraft.statistique.components.DataComponents;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -15,6 +16,7 @@ public class Statistique {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public Statistique(IEventBus modEventBus, ModContainer modContainer) {
+        DataComponents.COMPONENTS.register(modEventBus);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 }
