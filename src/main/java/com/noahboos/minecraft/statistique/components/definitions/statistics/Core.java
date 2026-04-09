@@ -29,6 +29,15 @@ public class Core {
         }
     }
 
+    public void incrementStatistic(String name, float value) {
+        Statistic statistic = statistics.get(name);
+        if (statistic == null) {
+            statistics.put(name, new Statistic(name, value));
+        } else {
+            statistics.put(name, statistic.withValue(statistic.value() + value));
+        }
+    }
+
     private static Core fromMap(Map<String, Statistic> map) {
         Core core = new Core();
         core.statistics.putAll(map);
