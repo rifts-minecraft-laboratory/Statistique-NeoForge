@@ -5,7 +5,8 @@ import net.minecraft.client.resources.language.I18n;
 public enum StatisticType {
     USED_DURABILITY("used_durability", "statistique.used_durability"),
     MINED_BLOCKS("mined_blocks", "statistique.mined_blocks"),
-    STRIPPED_BLOCKS("stripped_blocks", "statistique.stripped_blocks");
+    STRIPPED_BLOCKS("stripped_blocks", "statistique.stripped_blocks"),
+    TILLED_BLOCKS("tilled_blocks", "statistique.tilled_blocks"),
 
     private final String name;
     private final String translationKey;
