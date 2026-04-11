@@ -26,6 +26,7 @@ public class AxeStatistics extends ToolCore {
 
     private static Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(new ToolCore().toMap());
+        statistics.put(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), StatisticType.REALIZED_SECONDARY_ACTIONS.getNewStatistic());
         statistics.put(StatisticType.STRIPPED_BLOCKS.getName(), StatisticType.STRIPPED_BLOCKS.getNewStatistic());
         return statistics;
     }
