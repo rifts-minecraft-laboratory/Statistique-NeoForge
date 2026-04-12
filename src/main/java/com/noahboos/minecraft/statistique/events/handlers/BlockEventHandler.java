@@ -33,7 +33,6 @@ public class BlockEventHandler {
     public static void onToolModifiedBlock(BlockEvent.BlockToolModificationEvent event) {
         if (event.getLevel().isClientSide()) return;
         if (!(event.getPlayer() instanceof Player player)) return;
-        Logger.getGlobal().info("Tool modified block: " + event.getState().getBlock().getDescriptionId());
 
         ItemStack mainHandItemStack = player.getMainHandItem();
         Core statistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
@@ -49,7 +48,6 @@ public class BlockEventHandler {
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (event.getLevel().isClientSide()) return;
-        Logger.getGlobal().info("Right clicked block: " + event.getLevel().getBlockState(event.getPos()).getBlock().getDescriptionId());
 
         Player player = event.getEntity();
         ItemStack mainHandItemStack = player.getMainHandItem();
