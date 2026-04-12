@@ -8,6 +8,7 @@ import com.noahboos.minecraft.statistique.events.resolvers.SecondaryActionResolv
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockDropsEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
@@ -32,7 +33,25 @@ public class BlockEventHandler {
     public static void onToolModifiedBlock(BlockEvent.BlockToolModificationEvent event) {
         if (event.getLevel().isClientSide()) return;
         if (!(event.getPlayer() instanceof Player player)) return;
+        Logger.getGlobal().info("Tool modified block: " + event.getState().getBlock().getDescriptionId());
 
+        ItemStack mainHandItemStack = player.getMainHandItem();
+        Core statistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
+        if (!(statistics instanceof ToolCore)) return;
+
+        Core updatedStatistics = SecondaryActionResolver.resolve(event, statistics);
+        if (updatedStatistics == null) return;
+
+        EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
+        Logger.getGlobal().info("Statistics has been updated: " + updatedStatistics.toMap().toString());
+    }
+
+    @SubscribeEvent
+    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        if (event.getLevel().isClientSide()) return;
+        Logger.getGlobal().info("Right clicked block: " + event.getLevel().getBlockState(event.getPos()).getBlock().getDescriptionId());
+
+        Player player = event.getEntity();
         ItemStack mainHandItemStack = player.getMainHandItem();
         Core statistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
         if (!(statistics instanceof ToolCore)) return;
