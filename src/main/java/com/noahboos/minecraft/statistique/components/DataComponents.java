@@ -6,6 +6,7 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.tool
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.AxeStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.HoeStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShearsStatistics;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShovelStatistics;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -32,5 +33,9 @@ public class DataComponents {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShearsStatistics>> SHEARS_STATISTICS = COMPONENTS.register(
         "shears_statistics", () -> DataComponentType.<ShearsStatistics>builder().persistent(ShearsStatistics.CODEC).build()
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShovelStatistics>> SHOVEL_STATISTICS = COMPONENTS.register(
+        "shovel_statistics", () -> DataComponentType.<ShovelStatistics>builder().persistent(ShovelStatistics.CODEC).build()
     );
 }

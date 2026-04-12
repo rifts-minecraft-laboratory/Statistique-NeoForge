@@ -5,10 +5,8 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.Core
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.AxeStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.HoeStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShearsStatistics;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ShearsItem;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShovelStatistics;
+import net.minecraft.world.item.*;
 
 public class EquipmentComponentMapper {
     public static Core getStatisticsFromItem(ItemStack itemStack) {
@@ -22,6 +20,9 @@ public class EquipmentComponentMapper {
         }
         if (itemStack.getItem() instanceof ShearsItem) {
             return itemStack.getComponents().get(DataComponents.SHEARS_STATISTICS.get());
+        }
+        if (itemStack.getItem() instanceof ShovelItem) {
+            return itemStack.getComponents().get(DataComponents.SHOVEL_STATISTICS.get());
         }
 
         return null;
@@ -52,6 +53,14 @@ public class EquipmentComponentMapper {
                 itemStack.set(DataComponents.SHEARS_STATISTICS.get(), (ShearsStatistics) statistics);
             } else {
                 itemStack.set(DataComponents.SHEARS_STATISTICS.get(), new ShearsStatistics());
+            }
+        }
+        if (itemStack.getItem() instanceof ShovelItem) {
+            if (statistics == null && itemStack.getComponents().has(DataComponents.SHOVEL_STATISTICS.get())) return;
+            if (statistics != null) {
+                itemStack.set(DataComponents.SHOVEL_STATISTICS.get(), (ShovelStatistics) statistics);
+            } else {
+                itemStack.set(DataComponents.SHOVEL_STATISTICS.get(), new ShovelStatistics());
             }
         }
     }
