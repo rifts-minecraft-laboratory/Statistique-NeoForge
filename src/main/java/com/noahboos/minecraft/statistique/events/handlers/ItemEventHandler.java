@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.events;
+package com.noahboos.minecraft.statistique.events.handlers;
 
 import com.noahboos.minecraft.statistique.components.utils.statistics.EquipmentComponentMapper;
 import net.minecraft.world.item.ItemStack;

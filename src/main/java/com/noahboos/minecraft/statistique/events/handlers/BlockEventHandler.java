@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.events;
+package com.noahboos.minecraft.statistique.events.handlers;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;

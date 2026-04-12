@@ -1,8 +1,8 @@
 package com.noahboos.minecraft.statistique;
 
 import com.noahboos.minecraft.statistique.components.DataComponents;
-import com.noahboos.minecraft.statistique.events.BlockEventHandler;
-import com.noahboos.minecraft.statistique.events.ItemEventHandler;
+import com.noahboos.minecraft.statistique.events.handlers.BlockEventHandler;
+import com.noahboos.minecraft.statistique.events.handlers.ItemEventHandler;
 import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 
