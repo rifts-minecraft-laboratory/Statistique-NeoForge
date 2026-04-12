@@ -10,7 +10,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
 
-public class AxeStrippingRule implements SecondaryActionRule {
+public class AxeStrippingRule implements SecondaryActionRule<BlockEvent.BlockToolModificationEvent> {
     public static final List<Block> STRIPPABLE_BLOCKS = List.of(
         Blocks.ACACIA_LOG,
         Blocks.BIRCH_LOG,
