@@ -29,11 +29,11 @@ public class ActionResolver {
         return processResolve(event, statistics, RIGHT_CLICKED_BLOCK_RULES);
     }
 
-    private static <E> Core processResolve(E event, Core statistics, List<ActionRule<E>> rules) {
+    private static <Event> Core processResolve(Event event, Core statistics, List<ActionRule<Event>> rules) {
         Core updatedStatistics = statistics;
         boolean resolved = false;
 
-        for (ActionRule<E> rule : rules) {
+        for (ActionRule<Event> rule : rules) {
             if (rule.matches(event, updatedStatistics)) {
                 updatedStatistics = rule.apply(updatedStatistics);
                 resolved = true;
