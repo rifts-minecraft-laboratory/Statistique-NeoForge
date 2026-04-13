@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import java.util.List;
 
 public class AxeScrappingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
-    public static final List<Block> SCRAPPABLE_BLOCKS = List.of(
+    public static final List<Block> TARGETS = List.of(
         Blocks.EXPOSED_COPPER,
         Blocks.WEATHERED_COPPER,
         Blocks.OXIDIZED_COPPER,
@@ -53,7 +53,7 @@ public class AxeScrappingRule implements ActionRule<BlockEvent.BlockToolModifica
     public boolean matches(BlockEvent.BlockToolModificationEvent event, Core statistics) {
         if (!(event.getHeldItemStack().getItem() instanceof AxeItem)) return false;
         if (!ItemAbilities.AXE_SCRAPE.equals(event.getItemAbility())) return false;
-        if (!SCRAPPABLE_BLOCKS.contains(event.getState().getBlock())) return false;
+        if (!TARGETS.contains(event.getState().getBlock())) return false;
         return true;
     }
 

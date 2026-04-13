@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import java.util.List;
 
 public class HoeTillingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
-    public static final List<Block> TILLABLE_BLOCKS = List.of(
+    public static final List<Block> TARGETS = List.of(
         Blocks.DIRT,
         Blocks.GRASS_BLOCK
     );
@@ -20,7 +20,7 @@ public class HoeTillingRule implements ActionRule<BlockEvent.BlockToolModificati
     public boolean matches(BlockEvent.BlockToolModificationEvent event, Core statistics) {
         if (!(event.getHeldItemStack().getItem() instanceof HoeItem)) return false;
         if (!ItemAbilities.HOE_TILL.equals(event.getItemAbility())) return false;
-        if (!TILLABLE_BLOCKS.contains(event.getState().getBlock())) return false;
+        if (!TARGETS.contains(event.getState().getBlock())) return false;
         return true;
     }
 

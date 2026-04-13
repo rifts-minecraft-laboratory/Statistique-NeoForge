@@ -15,7 +15,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import java.util.List;
 
 public class ShearsHarvestingRule implements ActionRule<PlayerInteractEvent.RightClickBlock> {
-    public static final List<Block> HARVESTABLE_BLOCKS = List.of(
+    public static final List<Block> TARGETS = List.of(
         Blocks.BEEHIVE,
         Blocks.BEE_NEST
     );
@@ -28,7 +28,7 @@ public class ShearsHarvestingRule implements ActionRule<PlayerInteractEvent.Righ
 
         if (!(mainHandItemStack.getItem() instanceof ShearsItem)) return false;
         if (!mainHandItemStack.canPerformAction(ItemAbilities.SHEARS_HARVEST)) return false;
-        if (!HARVESTABLE_BLOCKS.contains(blockState.getBlock())) return false;
+        if (!TARGETS.contains(blockState.getBlock())) return false;
         if (blockState.getValue(BeehiveBlock.HONEY_LEVEL) == 0) return false;
         return true;
     }

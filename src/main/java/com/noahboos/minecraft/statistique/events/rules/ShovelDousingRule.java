@@ -12,7 +12,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import java.util.List;
 
 public class ShovelDousingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
-    public static final List<Block> DOUSEABLE_BLOCKS = List.of(
+    public static final List<Block> TARGETS = List.of(
         Blocks.CAMPFIRE,
         Blocks.SOUL_CAMPFIRE
     );
@@ -21,7 +21,7 @@ public class ShovelDousingRule implements ActionRule<BlockEvent.BlockToolModific
     public boolean matches(BlockEvent.BlockToolModificationEvent event, Core statistics) {
         if (!(event.getHeldItemStack().getItem() instanceof ShovelItem)) return false;
         if (!ItemAbilities.SHOVEL_DOUSE.equals(event.getItemAbility())) return false;
-        if (!DOUSEABLE_BLOCKS.contains(event.getState().getBlock())) return false;
+        if (!TARGETS.contains(event.getState().getBlock())) return false;
         if (!event.getState().getValue(BlockStateProperties.LIT)) return false;
         return true;
     }

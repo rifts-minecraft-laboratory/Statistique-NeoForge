@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import java.util.List;
 
 public class AxeStrippingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
-    public static final List<Block> STRIPPABLE_BLOCKS = List.of(
+    public static final List<Block> TARGETS = List.of(
         Blocks.ACACIA_LOG,
         Blocks.BIRCH_LOG,
         Blocks.CHERRY_LOG,
@@ -29,7 +29,7 @@ public class AxeStrippingRule implements ActionRule<BlockEvent.BlockToolModifica
     public boolean matches(BlockEvent.BlockToolModificationEvent event, Core statistics) {
         if (!(event.getHeldItemStack().getItem() instanceof AxeItem)) return false;
         if (!ItemAbilities.AXE_STRIP.equals(event.getItemAbility())) return false;
-        if (!STRIPPABLE_BLOCKS.contains(event.getState().getBlock())) return false;
+        if (!TARGETS.contains(event.getState().getBlock())) return false;
         return true;
     }
 

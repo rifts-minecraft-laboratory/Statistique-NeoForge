@@ -11,7 +11,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import java.util.List;
 
 public class ShovelFlatteningRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
-    public static final List<Block> FLATTENABLE_BLOCKS = List.of(
+    public static final List<Block> TARGETS = List.of(
         Blocks.DIRT,
         Blocks.GRASS_BLOCK,
         Blocks.PODZOL,
@@ -24,7 +24,7 @@ public class ShovelFlatteningRule implements ActionRule<BlockEvent.BlockToolModi
     public boolean matches(BlockEvent.BlockToolModificationEvent event, Core statistics) {
         if (!(event.getHeldItemStack().getItem() instanceof ShovelItem)) return false;
         if (!ItemAbilities.SHOVEL_FLATTEN.equals(event.getItemAbility())) return false;
-        if (!FLATTENABLE_BLOCKS.contains(event.getState().getBlock())) return false;
+        if (!TARGETS.contains(event.getState().getBlock())) return false;
         return true;
     }
 
