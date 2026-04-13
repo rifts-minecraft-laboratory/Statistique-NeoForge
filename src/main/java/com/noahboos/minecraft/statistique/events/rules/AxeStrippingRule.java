@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.events.rules.secondary_action;
+package com.noahboos.minecraft.statistique.events.rules;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
@@ -10,7 +10,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
 
-public class AxeStrippingRule implements SecondaryActionRule<BlockEvent.BlockToolModificationEvent> {
+public class AxeStrippingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
     public static final List<Block> STRIPPABLE_BLOCKS = List.of(
         Blocks.ACACIA_LOG,
         Blocks.BIRCH_LOG,

@@ -4,7 +4,7 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.Core
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.ToolCore;
 import com.noahboos.minecraft.statistique.components.utils.statistics.EquipmentComponentMapper;
-import com.noahboos.minecraft.statistique.events.resolvers.SecondaryActionResolver;
+import com.noahboos.minecraft.statistique.events.resolvers.ActionResolver;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -38,7 +38,7 @@ public class BlockEventHandler {
         Core statistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
         if (!(statistics instanceof ToolCore)) return;
 
-        Core updatedStatistics = SecondaryActionResolver.resolve(event, statistics);
+        Core updatedStatistics = ActionResolver.resolve(event, statistics);
         if (updatedStatistics == null) return;
 
         EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
@@ -54,7 +54,7 @@ public class BlockEventHandler {
         Core statistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
         if (!(statistics instanceof ToolCore)) return;
 
-        Core updatedStatistics = SecondaryActionResolver.resolve(event, statistics);
+        Core updatedStatistics = ActionResolver.resolve(event, statistics);
         if (updatedStatistics == null) return;
 
         EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);

@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.events.rules.secondary_action;
+package com.noahboos.minecraft.statistique.events.rules;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
@@ -14,7 +14,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.List;
 
-public class ShearsHarvestingRule implements SecondaryActionRule<PlayerInteractEvent.RightClickBlock> {
+public class ShearsHarvestingRule implements ActionRule<PlayerInteractEvent.RightClickBlock> {
     public static final List<Block> HARVESTABLE_BLOCKS = List.of(
         Blocks.BEEHIVE,
         Blocks.BEE_NEST
