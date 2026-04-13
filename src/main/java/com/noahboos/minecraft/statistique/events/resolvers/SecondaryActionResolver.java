@@ -13,6 +13,7 @@ public class SecondaryActionResolver {
         new AxeScrappingRule(),
         new AxeStrippingRule(),
         new HoeTillingRule(),
+        new ShovelDousingRule(),
         new ShovelFlatteningRule()
     );
 
