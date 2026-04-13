@@ -13,7 +13,7 @@ public class SecondaryActionResolver {
         new AxeScrappingRule(),
         new AxeStrippingRule(),
         new HoeTillingRule(),
-        new ShovelPathingRule()
+        new ShovelFlatteningRule()
     );
 
     private static final List<SecondaryActionRule<PlayerInteractEvent.RightClickBlock>> RIGHT_CLICKED_BLOCK_RULES = List.of(

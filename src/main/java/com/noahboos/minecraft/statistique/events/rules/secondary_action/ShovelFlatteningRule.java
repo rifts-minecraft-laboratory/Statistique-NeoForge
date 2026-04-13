@@ -10,8 +10,8 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
 
-public class ShovelPathingRule implements SecondaryActionRule<BlockEvent.BlockToolModificationEvent> {
-    public static final List<Block> PATHABLE_BLOCKS = List.of(
+public class ShovelFlatteningRule implements SecondaryActionRule<BlockEvent.BlockToolModificationEvent> {
+    public static final List<Block> FLATTENABLE_BLOCKS = List.of(
         Blocks.DIRT,
         Blocks.GRASS_BLOCK,
         Blocks.PODZOL,
@@ -24,7 +24,7 @@ public class ShovelPathingRule implements SecondaryActionRule<BlockEvent.BlockTo
     public boolean matches(BlockEvent.BlockToolModificationEvent event, Core statistics) {
         if (!(event.getHeldItemStack().getItem() instanceof ShovelItem)) return false;
         if (!ItemAbilities.SHOVEL_FLATTEN.equals(event.getItemAbility())) return false;
-        if (!PATHABLE_BLOCKS.contains(event.getState().getBlock())) return false;
+        if (!FLATTENABLE_BLOCKS.contains(event.getState().getBlock())) return false;
         return true;
     }
 
@@ -32,6 +32,6 @@ public class ShovelPathingRule implements SecondaryActionRule<BlockEvent.BlockTo
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.PATHED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.FLATTENED_BLOCKS.getName(), 1);
     }
 }
