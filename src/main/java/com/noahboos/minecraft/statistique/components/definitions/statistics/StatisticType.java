@@ -4,6 +4,7 @@ import net.minecraft.client.resources.language.I18n;
 
 public enum StatisticType {
     USED_DURABILITY("used_durability", "statistique.used_durability"),
+    DEWAXED_BLOCKS("dewaxed_blocks", "statistique.dewaxed_blocks"),
     HARVESTED_BLOCKS("harvested_blocks", "statistique.harvested_blocks"),
     MINED_BLOCKS("mined_blocks", "statistique.mined_blocks"),
     REALIZED_SECONDARY_ACTIONS("realized_secondary_actions", "statistique.realized_secondary_actions"),

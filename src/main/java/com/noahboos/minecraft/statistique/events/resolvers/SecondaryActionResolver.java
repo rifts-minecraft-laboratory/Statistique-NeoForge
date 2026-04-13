@@ -9,6 +9,7 @@ import java.util.List;
 
 public class SecondaryActionResolver {
     private static final List<SecondaryActionRule<BlockEvent.BlockToolModificationEvent>> MODIFIED_BLOCK_RULES = List.of(
+        new AxeDewaxingRule(),
         new AxeStrippingRule(),
         new HoeTillingRule(),
         new ShovelPathingRule()
