@@ -8,8 +8,8 @@ public enum StatisticType {
     DEWAXED_COPPER_BLOCKS("dewaxed_copper_blocks", "statistique.dewaxed_copper_blocks"),
     DISARMED_TRIPWIRES("disarmed_tripwires", "statistique.disarmed_tripwires"),
     DOUSED_CAMPFIRES("doused_campfires", "statistique.doused_campfires"),
-    FLATTENED_BLOCKS("flattened_blocks", "statistique.flattened_blocks"),
-    HARVESTED_BLOCKS("harvested_blocks", "statistique.harvested_blocks"),
+    FLATTENED_SOILS("flattened_soils", "statistique.flattened_soils"),
+    HARVESTED_BEEHIVES("harvested_beehives", "statistique.harvested_beehives"),
     MINED_BLOCKS("mined_blocks", "statistique.mined_blocks"),
     REALIZED_SECONDARY_ACTIONS("realized_secondary_actions", "statistique.realized_secondary_actions"),
     REMOVED_WOLF_ARMORS("removed_wolf_armors", "statistique.removed_wolf_armors"),
@@ -17,7 +17,7 @@ public enum StatisticType {
     SHEARED_SHEEP("sheared_sheep", "statistique.sheared_sheep"),
     STRIPPED_LOGS("stripped_logs", "statistique.stripped_logs"),
     TILLED_SOILS("tilled_soils", "statistique.tilled_soils"),
-    TRIMMED_BLOCKS("trimmed_blocks", "statistique.trimmed_blocks");
+    TRIMMED_PLANTS("trimmed_plants", "statistique.trimmed_plants");
 
     private final String name;
     private final String translationKey;

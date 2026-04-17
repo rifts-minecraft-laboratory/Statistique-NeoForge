@@ -14,7 +14,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.List;
 
-public class ShearsHarvestingRule implements ActionRule<PlayerInteractEvent.RightClickBlock> {
+public class ShearsBeehiveHarvestingRule implements ActionRule<PlayerInteractEvent.RightClickBlock> {
     public static final List<Block> TARGETS = List.of(
         Blocks.BEEHIVE,
         Blocks.BEE_NEST
@@ -37,6 +37,6 @@ public class ShearsHarvestingRule implements ActionRule<PlayerInteractEvent.Righ
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.HARVESTED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.HARVESTED_BEEHIVES.getName(), 1);
     }
 }

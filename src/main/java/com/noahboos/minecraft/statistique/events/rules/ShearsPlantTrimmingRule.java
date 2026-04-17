@@ -14,7 +14,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.List;
 
-public class ShearsTrimmingRule implements ActionRule<PlayerInteractEvent.RightClickBlock> {
+public class ShearsPlantTrimmingRule implements ActionRule<PlayerInteractEvent.RightClickBlock> {
     public static final List<Block> TARGETS = List.of(
         Blocks.CAVE_VINES,
         Blocks.KELP,
@@ -39,6 +39,6 @@ public class ShearsTrimmingRule implements ActionRule<PlayerInteractEvent.RightC
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.TRIMMED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.TRIMMED_PLANTS.getName(), 1);
     }
 }

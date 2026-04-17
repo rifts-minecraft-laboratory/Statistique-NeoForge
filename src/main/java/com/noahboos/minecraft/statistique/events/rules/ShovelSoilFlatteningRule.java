@@ -10,7 +10,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
 
-public class ShovelFlatteningRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
+public class ShovelSoilFlatteningRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
     public static final List<Block> TARGETS = List.of(
         Blocks.DIRT,
         Blocks.GRASS_BLOCK,
@@ -32,6 +32,6 @@ public class ShovelFlatteningRule implements ActionRule<BlockEvent.BlockToolModi
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.FLATTENED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.FLATTENED_SOILS.getName(), 1);
     }
 }

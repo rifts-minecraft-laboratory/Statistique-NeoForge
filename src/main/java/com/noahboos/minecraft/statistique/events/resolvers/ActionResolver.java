@@ -23,13 +23,13 @@ public class ActionResolver {
         new AxeLogStrippingRule(),
         new HoeSoilTillingRule(),
         new ShovelCampfireDousingRule(),
-        new ShovelFlatteningRule()
+        new ShovelSoilFlatteningRule()
     );
 
     private static final List<ActionRule<PlayerInteractEvent.RightClickBlock>> RIGHT_CLICKED_BLOCK_RULES = List.of(
         new ShearsPumpkinCarvingRule(),
-        new ShearsHarvestingRule(),
-        new ShearsTrimmingRule()
+        new ShearsBeehiveHarvestingRule(),
+        new ShearsPlantTrimmingRule()
     );
 
     public static Core resolve(BlockEvent.BreakEvent event, Core statistics) {
