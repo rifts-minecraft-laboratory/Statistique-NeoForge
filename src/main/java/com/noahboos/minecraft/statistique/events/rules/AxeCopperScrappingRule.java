@@ -10,7 +10,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
 
-public class AxeScrappingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
+public class AxeCopperScrappingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
     public static final List<Block> TARGETS = List.of(
         Blocks.EXPOSED_COPPER,
         Blocks.WEATHERED_COPPER,

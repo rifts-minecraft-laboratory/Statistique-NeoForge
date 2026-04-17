@@ -2,28 +2,27 @@ package com.noahboos.minecraft.statistique.events.rules;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
-import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
 
-public class HoeTillingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
+public class ShovelCampfireDousingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
     public static final List<Block> TARGETS = List.of(
-        Blocks.COARSE_DIRT,
-        Blocks.DIRT,
-        Blocks.DIRT_PATH,
-        Blocks.GRASS_BLOCK,
-        Blocks.ROOTED_DIRT
+        Blocks.CAMPFIRE,
+        Blocks.SOUL_CAMPFIRE
     );
 
     @Override
     public boolean matches(BlockEvent.BlockToolModificationEvent event, Core statistics) {
-        if (!(event.getHeldItemStack().getItem() instanceof HoeItem)) return false;
-        if (!ItemAbilities.HOE_TILL.equals(event.getItemAbility())) return false;
+        if (!(event.getHeldItemStack().getItem() instanceof ShovelItem)) return false;
+        if (!ItemAbilities.SHOVEL_DOUSE.equals(event.getItemAbility())) return false;
         if (!TARGETS.contains(event.getState().getBlock())) return false;
+        if (!event.getState().getValue(BlockStateProperties.LIT)) return false;
         return true;
     }
 
@@ -31,6 +30,6 @@ public class HoeTillingRule implements ActionRule<BlockEvent.BlockToolModificati
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.TILLED_SOILS.getName(), 1);
+            .incrementStatistic(StatisticType.DOUSED_CAMPFIRES.getName(), 1);
     }
 }

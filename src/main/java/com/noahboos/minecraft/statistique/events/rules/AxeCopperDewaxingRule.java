@@ -10,7 +10,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
 
-public class AxeDewaxingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
+public class AxeCopperDewaxingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
     public static final List<Block> TARGETS = List.of(
         Blocks.WAXED_COPPER_BLOCK,
         Blocks.WAXED_EXPOSED_COPPER,

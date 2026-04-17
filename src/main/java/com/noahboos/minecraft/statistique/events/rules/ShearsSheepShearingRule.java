@@ -2,31 +2,29 @@ package com.noahboos.minecraft.statistique.events.rules;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.sheep.Sheep;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShearsItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import java.util.List;
 
-public class ShearsCarvingRule implements ActionRule<PlayerInteractEvent.RightClickBlock> {
-    public static final List<Block> TARGETS = List.of(
-        Blocks.PUMPKIN
+public class ShearsSheepShearingRule implements ActionRule<PlayerInteractEvent.EntityInteract> {
+    public static final List<EntityType<?>> TARGETS = List.of(
+        EntityType.SHEEP
     );
 
     @Override
-    public boolean matches(PlayerInteractEvent.RightClickBlock event, Core statistics) {
+    public boolean matches(PlayerInteractEvent.EntityInteract event, Core statistics) {
         ItemStack mainHandItemStack = event.getEntity().getMainHandItem();
-        BlockPos blockPosition = event.getPos();
-        BlockState blockState = event.getLevel().getBlockState(blockPosition);
+        EntityType<?> entityType = event.getTarget().getType();
 
         if (!(mainHandItemStack.getItem() instanceof ShearsItem)) return false;
-        if (!mainHandItemStack.canPerformAction(ItemAbilities.SHEARS_CARVE)) return false;
-        if (!TARGETS.contains(blockState.getBlock())) return false;
+        if (!mainHandItemStack.canPerformAction(ItemAbilities.SHEARS_REMOVE_ARMOR)) return false;
+        if (!TARGETS.contains(entityType)) return false;
+        if (event.getTarget() instanceof Sheep sheep && sheep.isSheared()) return false;
         return true;
     }
 
@@ -34,6 +32,6 @@ public class ShearsCarvingRule implements ActionRule<PlayerInteractEvent.RightCl
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.CARVED_PUMPKINS.getName(), 1);
+            .incrementStatistic(StatisticType.SHEARED_SHEEP.getName(), 1);
     }
 }
