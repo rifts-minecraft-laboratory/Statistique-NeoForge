@@ -26,7 +26,7 @@ public class ToolCore extends Core {
 
     private static Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(new Core().toMap());
-        statistics.put(StatisticType.MINED_BLOCKS.getName(), StatisticType.MINED_BLOCKS.getNewStatistic());
+        statistics.put(StatisticType.BROKEN_BLOCKS.getName(), StatisticType.BROKEN_BLOCKS.getNewStatistic());
         return statistics;
     }
 

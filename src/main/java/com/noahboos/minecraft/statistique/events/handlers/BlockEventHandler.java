@@ -25,7 +25,7 @@ public class BlockEventHandler {
 
         if (!(statistics instanceof ToolCore)) return;
 
-        Core updatedStatistics = statistics.incrementStatistic(StatisticType.MINED_BLOCKS.getName(), 1);
+        Core updatedStatistics = statistics.incrementStatistic(StatisticType.BROKEN_BLOCKS.getName(), 1);
         EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
     }
 
