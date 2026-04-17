@@ -30,6 +30,6 @@ public class ShovelDousingRule implements ActionRule<BlockEvent.BlockToolModific
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.DOUSED_FIRES.getName(), 1);
+            .incrementStatistic(StatisticType.DOUSED_CAMPFIRES.getName(), 1);
     }
 }

@@ -70,6 +70,6 @@ public class AxeDewaxingRule implements ActionRule<BlockEvent.BlockToolModificat
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.DEWAXED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.DEWAXED_COPPER_BLOCKS.getName(), 1);
     }
 }

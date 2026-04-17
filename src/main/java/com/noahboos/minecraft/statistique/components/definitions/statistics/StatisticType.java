@@ -4,19 +4,19 @@ import net.minecraft.client.resources.language.I18n;
 
 public enum StatisticType {
     USED_DURABILITY("used_durability", "statistique.used_durability"),
-    CARVED_BLOCKS("carved_blocks", "statistique.carved_blocks"),
-    DEWAXED_BLOCKS("dewaxed_blocks", "statistique.dewaxed_blocks"),
-    DISARMED_BLOCKS("disarmed_blocks", "statistique.disarmed_blocks"),
-    DOUSED_FIRES("doused_fires", "statistique.doused_fires"),
+    CARVED_PUMPKINS("carved_pumpkins", "statistique.carved_pumpkins"),
+    DEWAXED_COPPER_BLOCKS("dewaxed_copper_blocks", "statistique.dewaxed_copper_blocks"),
+    DISARMED_TRIPWIRES("disarmed_tripwires", "statistique.disarmed_tripwires"),
+    DOUSED_CAMPFIRES("doused_campfires", "statistique.doused_campfires"),
     FLATTENED_BLOCKS("flattened_blocks", "statistique.flattened_blocks"),
     HARVESTED_BLOCKS("harvested_blocks", "statistique.harvested_blocks"),
     MINED_BLOCKS("mined_blocks", "statistique.mined_blocks"),
     REALIZED_SECONDARY_ACTIONS("realized_secondary_actions", "statistique.realized_secondary_actions"),
-    REMOVED_ARMOR("removed_armor", "statistique.removed_armor"),
-    SCRAPPED_BLOCKS("scrapped_blocks", "statistique.scrapped_blocks"),
+    REMOVED_WOLF_ARMORS("removed_wolf_armors", "statistique.removed_wolf_armors"),
+    SCRAPPED_COPPER_BLOCKS("scrapped_copper_blocks", "statistique.scrapped_copper_blocks"),
     SHEARED_SHEEP("sheared_sheep", "statistique.sheared_sheep"),
-    STRIPPED_BLOCKS("stripped_blocks", "statistique.stripped_blocks"),
-    TILLED_BLOCKS("tilled_blocks", "statistique.tilled_blocks"),
+    STRIPPED_LOGS("stripped_logs", "statistique.stripped_logs"),
+    TILLED_SOILS("tilled_soils", "statistique.tilled_soils"),
     TRIMMED_BLOCKS("trimmed_blocks", "statistique.trimmed_blocks");
 
     private final String name;

@@ -34,6 +34,6 @@ public class ShearsDisarmingRule implements ActionRule<BlockEvent.BreakEvent> {
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.DISARMED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.DISARMED_TRIPWIRES.getName(), 1);
     }
 }

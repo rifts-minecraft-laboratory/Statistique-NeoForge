@@ -28,6 +28,6 @@ public class HoeTillingRule implements ActionRule<BlockEvent.BlockToolModificati
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.TILLED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.TILLED_SOILS.getName(), 1);
     }
 }

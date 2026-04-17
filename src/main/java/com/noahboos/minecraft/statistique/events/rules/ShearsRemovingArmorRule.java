@@ -32,6 +32,6 @@ public class ShearsRemovingArmorRule implements ActionRule<PlayerInteractEvent.E
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.REMOVED_ARMOR.getName(), 1);
+            .incrementStatistic(StatisticType.REMOVED_WOLF_ARMORS.getName(), 1);
     }
 }

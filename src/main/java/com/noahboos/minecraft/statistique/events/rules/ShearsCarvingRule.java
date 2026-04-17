@@ -34,6 +34,6 @@ public class ShearsCarvingRule implements ActionRule<PlayerInteractEvent.RightCl
     public Core apply(Core statistics) {
         return statistics
             .incrementStatistic(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), 1)
-            .incrementStatistic(StatisticType.CARVED_BLOCKS.getName(), 1);
+            .incrementStatistic(StatisticType.CARVED_PUMPKINS.getName(), 1);
     }
 }
