@@ -23,7 +23,8 @@ public class ActionResolver {
 
     private static final List<ActionRule<PlayerInteractEvent.RightClickBlock>> RIGHT_CLICKED_BLOCK_RULES = List.of(
         new ShearsCarvingRule(),
-        new ShearsHarvestingRule()
+        new ShearsHarvestingRule(),
+        new ShearsTrimmingRule()
     );
 
     public static Core resolve(BlockEvent.BreakEvent event, Core statistics) {

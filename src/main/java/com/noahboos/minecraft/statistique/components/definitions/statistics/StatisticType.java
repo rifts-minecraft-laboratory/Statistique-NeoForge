@@ -15,6 +15,7 @@ public enum StatisticType {
     SHEARED_ENTITIES("sheared_entities", "statistique.sheared_entities"),
     STRIPPED_BLOCKS("stripped_blocks", "statistique.stripped_blocks"),
     TILLED_BLOCKS("tilled_blocks", "statistique.tilled_blocks"),
+    TRIMMED_BLOCKS("trimmed_blocks", "statistique.trimmed_blocks"),
     FLATTENED_BLOCKS("flattened_blocks", "statistique.flattened_blocks");
 
     private final String name;
