@@ -8,6 +8,10 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import java.util.List;
 
 public class ActionResolver {
+    private static final List<ActionRule<BlockEvent.BreakEvent>> BROKEN_BLOCK_RULES = List.of(
+        new ShearsDisarmingRule()
+    );
+
     private static final List<ActionRule<BlockEvent.BlockToolModificationEvent>> MODIFIED_BLOCK_RULES = List.of(
         new AxeDewaxingRule(),
         new AxeScrappingRule(),
@@ -21,6 +25,10 @@ public class ActionResolver {
         new ShearsCarvingRule(),
         new ShearsHarvestingRule()
     );
+
+    public static Core resolve(BlockEvent.BreakEvent event, Core statistics) {
+        return processResolve(event, statistics, BROKEN_BLOCK_RULES);
+    }
 
     public static Core resolve(BlockEvent.BlockToolModificationEvent event, Core statistics) {
         return processResolve(event, statistics, MODIFIED_BLOCK_RULES);

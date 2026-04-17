@@ -60,4 +60,19 @@ public class BlockEventHandler {
         EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
         Logger.getGlobal().info("Statistics has been updated: " + updatedStatistics.toMap().toString());
     }
+
+    @SubscribeEvent
+    public static void onBrokenBlock(BlockEvent.BreakEvent event) {
+        if (event.getLevel().isClientSide()) return;
+
+        ItemStack mainHandItemStack = event.getPlayer().getMainHandItem();
+        Core statistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
+        if (!(statistics instanceof ToolCore)) return;
+
+        Core updatedStatistics = ActionResolver.resolve(event, statistics);
+        if (updatedStatistics == null) return;
+
+        EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
+        Logger.getGlobal().info("Statistics has been updated: " + updatedStatistics.toMap().toString());
+    }
 }
