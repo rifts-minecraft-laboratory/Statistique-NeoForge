@@ -12,8 +12,11 @@ import java.util.List;
 
 public class HoeTillingRule implements ActionRule<BlockEvent.BlockToolModificationEvent> {
     public static final List<Block> TARGETS = List.of(
+        Blocks.COARSE_DIRT,
         Blocks.DIRT,
-        Blocks.GRASS_BLOCK
+        Blocks.DIRT_PATH,
+        Blocks.GRASS_BLOCK,
+        Blocks.ROOTED_DIRT
     );
 
     @Override
