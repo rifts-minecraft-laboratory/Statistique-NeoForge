@@ -31,7 +31,7 @@ public class ShearsStatistics extends ToolCore {
         statistics.put(StatisticType.DISARMED_BLOCKS.getName(), StatisticType.DISARMED_BLOCKS.getNewStatistic());
         statistics.put(StatisticType.HARVESTED_BLOCKS.getName(), StatisticType.HARVESTED_BLOCKS.getNewStatistic());
         statistics.put(StatisticType.REMOVED_ARMOR.getName(), StatisticType.REMOVED_ARMOR.getNewStatistic());
-        statistics.put(StatisticType.SHEARED_ENTITIES.getName(), StatisticType.SHEARED_ENTITIES.getNewStatistic());
+        statistics.put(StatisticType.SHEARED_SHEEP.getName(), StatisticType.SHEARED_SHEEP.getNewStatistic());
         statistics.put(StatisticType.TRIMMED_BLOCKS.getName(), StatisticType.TRIMMED_BLOCKS.getNewStatistic());
         return statistics;
     }

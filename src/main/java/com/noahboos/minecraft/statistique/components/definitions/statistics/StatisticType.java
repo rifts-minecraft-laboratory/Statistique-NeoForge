@@ -14,7 +14,7 @@ public enum StatisticType {
     REALIZED_SECONDARY_ACTIONS("realized_secondary_actions", "statistique.realized_secondary_actions"),
     REMOVED_ARMOR("removed_armor", "statistique.removed_armor"),
     SCRAPPED_BLOCKS("scrapped_blocks", "statistique.scrapped_blocks"),
-    SHEARED_ENTITIES("sheared_entities", "statistique.sheared_entities"),
+    SHEARED_SHEEP("sheared_sheep", "statistique.sheared_sheep"),
     STRIPPED_BLOCKS("stripped_blocks", "statistique.stripped_blocks"),
     TILLED_BLOCKS("tilled_blocks", "statistique.tilled_blocks"),
     TRIMMED_BLOCKS("trimmed_blocks", "statistique.trimmed_blocks");
