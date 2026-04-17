@@ -13,7 +13,8 @@ public class ActionResolver {
     );
 
     private static final List<ActionRule<PlayerInteractEvent.EntityInteract>> ENTITY_INTERACT_RULES = List.of(
-        new ShearsRemovingArmorRule()
+        new ShearsRemovingArmorRule(),
+        new ShearsShearingRule()
     );
 
     private static final List<ActionRule<BlockEvent.BlockToolModificationEvent>> MODIFIED_BLOCK_RULES = List.of(
