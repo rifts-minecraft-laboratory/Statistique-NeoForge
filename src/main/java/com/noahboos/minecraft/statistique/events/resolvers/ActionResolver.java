@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ActionResolver {
     private static final List<ActionRule<BlockEvent.BreakEvent>> BROKEN_BLOCK_RULES = List.of(
-        new ShearsTripwireDisarmingRule()
+        //
     );
 
     private static final List<ActionRule<PlayerInteractEvent.EntityInteract>> ENTITY_INTERACT_RULES = List.of(

@@ -28,7 +28,6 @@ public class ShearsStatistics extends ToolCore {
         Map<String, Statistic> statistics = new HashMap<>(new ToolCore().toMap());
         statistics.put(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), StatisticType.REALIZED_SECONDARY_ACTIONS.getNewStatistic());
         statistics.put(StatisticType.CARVED_PUMPKINS.getName(), StatisticType.CARVED_PUMPKINS.getNewStatistic());
-        statistics.put(StatisticType.DISARMED_TRIPWIRES.getName(), StatisticType.DISARMED_TRIPWIRES.getNewStatistic());
         statistics.put(StatisticType.HARVESTED_BEEHIVES.getName(), StatisticType.HARVESTED_BEEHIVES.getNewStatistic());
         statistics.put(StatisticType.REMOVED_WOLF_ARMORS.getName(), StatisticType.REMOVED_WOLF_ARMORS.getNewStatistic());
         statistics.put(StatisticType.SHEARED_SHEEP.getName(), StatisticType.SHEARED_SHEEP.getNewStatistic());

@@ -7,7 +7,6 @@ public enum StatisticType {
     BROKEN_BLOCKS("broken_blocks", "statistique.broken_blocks"),
     CARVED_PUMPKINS("carved_pumpkins", "statistique.carved_pumpkins"),
     DEWAXED_COPPER_BLOCKS("dewaxed_copper_blocks", "statistique.dewaxed_copper_blocks"),
-    DISARMED_TRIPWIRES("disarmed_tripwires", "statistique.disarmed_tripwires"),
     DOUSED_CAMPFIRES("doused_campfires", "statistique.doused_campfires"),
     FLATTENED_SOILS("flattened_soils", "statistique.flattened_soils"),
     HARVESTED_BEEHIVES("harvested_beehives", "statistique.harvested_beehives"),
