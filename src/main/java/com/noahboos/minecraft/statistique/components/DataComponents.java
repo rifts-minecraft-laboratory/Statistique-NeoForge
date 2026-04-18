@@ -3,10 +3,7 @@ package com.noahboos.minecraft.statistique.components;
 import com.noahboos.minecraft.statistique.Statistique;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.ToolCore;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.AxeStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.HoeStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShearsStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShovelStatistics;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.*;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -29,6 +26,10 @@ public class DataComponents {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<HoeStatistics>> HOE_STATISTICS = COMPONENTS.register(
         "hoe_statistics", () -> DataComponentType.<HoeStatistics>builder().persistent(HoeStatistics.CODEC).build()
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<PickaxeStatistics>> PICKAXE_STATISTICS = COMPONENTS.register(
+        "pickaxe_statistics", () -> DataComponentType.<PickaxeStatistics>builder().persistent(PickaxeStatistics.CODEC).build()
     );
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShearsStatistics>> SHEARS_STATISTICS = COMPONENTS.register(

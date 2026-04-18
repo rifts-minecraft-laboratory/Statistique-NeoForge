@@ -2,10 +2,8 @@ package com.noahboos.minecraft.statistique.components.utils.statistics;
 
 import com.noahboos.minecraft.statistique.components.DataComponents;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.AxeStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.HoeStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShearsStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.ShovelStatistics;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
 
 public class EquipmentComponentMapper {
@@ -17,6 +15,9 @@ public class EquipmentComponentMapper {
         }
         if (itemStack.getItem() instanceof HoeItem) {
             return itemStack.getComponents().get(DataComponents.HOE_STATISTICS.get());
+        }
+        if (itemStack.is(ItemTags.PICKAXES)) {
+            return itemStack.getComponents().get(DataComponents.PICKAXE_STATISTICS.get());
         }
         if (itemStack.getItem() instanceof ShearsItem) {
             return itemStack.getComponents().get(DataComponents.SHEARS_STATISTICS.get());
@@ -45,6 +46,14 @@ public class EquipmentComponentMapper {
                 itemStack.set(DataComponents.HOE_STATISTICS.get(), (HoeStatistics) statistics);
             } else {
                 itemStack.set(DataComponents.HOE_STATISTICS.get(), new HoeStatistics());
+            }
+        }
+        if (itemStack.is(ItemTags.PICKAXES)) {
+            if (statistics == null && itemStack.getComponents().has(DataComponents.PICKAXE_STATISTICS.get())) return;
+            if (statistics != null) {
+                itemStack.set(DataComponents.PICKAXE_STATISTICS.get(), (PickaxeStatistics) statistics);
+            } else {
+                itemStack.set(DataComponents.PICKAXE_STATISTICS.get(), new PickaxeStatistics());
             }
         }
         if (itemStack.getItem() instanceof ShearsItem) {
