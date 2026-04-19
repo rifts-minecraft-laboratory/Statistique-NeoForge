@@ -10,27 +10,19 @@ import java.util.List;
 
 public class ActionResolver {
     private static final List<ActionRule<BlockEvent.BreakEvent>> BROKEN_BLOCK_RULES = List.of(
-        //
+        // Rules here.
     );
 
     private static final List<ActionRule<PlayerInteractEvent.EntityInteract>> ENTITY_INTERACT_RULES = List.of(
-        new ShearsWolfRemovingArmorRule(),
-        new ShearsSheepShearingRule()
+        // Rules here.
     );
 
     private static final List<ActionRule<BlockEvent.BlockToolModificationEvent>> MODIFIED_BLOCK_RULES = List.of(
-        new AxeCopperDewaxingRule(),
-        new AxeCopperScrappingRule(),
-        new AxeLogStrippingRule(),
-        new HoeSoilTillingRule(),
-        new ShovelCampfireDousingRule(),
-        new ShovelSoilFlatteningRule()
+        // Rules here.
     );
 
     private static final List<ActionRule<PlayerInteractEvent.RightClickBlock>> RIGHT_CLICKED_BLOCK_RULES = List.of(
-        new ShearsPumpkinCarvingRule(),
-        new ShearsBeehiveHarvestingRule(),
-        new ShearsPlantTrimmingRule()
+        // Rules here.
     );
 
     public static Core resolve(BlockEvent.BreakEvent event, Core statistics) {

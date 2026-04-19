@@ -26,9 +26,6 @@ public class ShovelStatistics extends ToolCore {
 
     private static Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(new ToolCore().toMap());
-        statistics.put(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), StatisticType.REALIZED_SECONDARY_ACTIONS.getNewStatistic());
-        statistics.put(StatisticType.DOUSED_CAMPFIRES.getName(), StatisticType.DOUSED_CAMPFIRES.getNewStatistic());
-        statistics.put(StatisticType.FLATTENED_SOILS.getName(), StatisticType.FLATTENED_SOILS.getNewStatistic());
         return statistics;
     }
 

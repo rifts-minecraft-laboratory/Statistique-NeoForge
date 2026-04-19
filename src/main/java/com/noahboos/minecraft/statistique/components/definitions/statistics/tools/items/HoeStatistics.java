@@ -26,8 +26,6 @@ public class HoeStatistics extends ToolCore {
 
     private static Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(new ToolCore().toMap());
-        statistics.put(StatisticType.REALIZED_SECONDARY_ACTIONS.getName(), StatisticType.REALIZED_SECONDARY_ACTIONS.getNewStatistic());
-        statistics.put(StatisticType.TILLED_SOILS.getName(), StatisticType.TILLED_SOILS.getNewStatistic());
         return statistics;
     }
 
