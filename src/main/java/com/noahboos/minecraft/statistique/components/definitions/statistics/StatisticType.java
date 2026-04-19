@@ -3,7 +3,6 @@ package com.noahboos.minecraft.statistique.components.definitions.statistics;
 import net.minecraft.client.resources.language.I18n;
 
 public enum StatisticType {
-    USED_DURABILITY("used_durability", "statistique.used_durability"),
     BROKEN_BLOCKS("broken_blocks", "statistique.broken_blocks"),
     CARVED_PUMPKINS("carved_pumpkins", "statistique.carved_pumpkins"),
     DEWAXED_COPPER_BLOCKS("dewaxed_copper_blocks", "statistique.dewaxed_copper_blocks"),

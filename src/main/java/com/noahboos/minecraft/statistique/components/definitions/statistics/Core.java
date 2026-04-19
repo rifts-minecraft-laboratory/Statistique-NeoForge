@@ -15,10 +15,7 @@ public class Core {
     }
 
     public Core() {
-        this(Map.of(
-            StatisticType.USED_DURABILITY.getName(),
-            StatisticType.USED_DURABILITY.getNewStatistic()
-        ));
+        this(Map.of());
     }
 
     protected Core create(Map<String, Statistic> statistics) {
