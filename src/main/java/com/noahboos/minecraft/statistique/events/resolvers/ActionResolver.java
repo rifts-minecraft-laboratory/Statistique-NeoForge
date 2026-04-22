@@ -13,32 +13,8 @@ public class ActionResolver {
         // Rules here.
     );
 
-    private static final List<ActionRule<PlayerInteractEvent.EntityInteract>> ENTITY_INTERACT_RULES = List.of(
-        // Rules here.
-    );
-
-    private static final List<ActionRule<BlockEvent.BlockToolModificationEvent>> MODIFIED_BLOCK_RULES = List.of(
-        // Rules here.
-    );
-
-    private static final List<ActionRule<PlayerInteractEvent.RightClickBlock>> RIGHT_CLICKED_BLOCK_RULES = List.of(
-        // Rules here.
-    );
-
     public static Core resolve(BlockEvent.BreakEvent event, Core statistics) {
         return processResolve(event, statistics, BROKEN_BLOCK_RULES);
-    }
-
-    public static Core resolve(PlayerInteractEvent.EntityInteract event, Core statistics) {
-        return processResolve(event, statistics, ENTITY_INTERACT_RULES);
-    }
-
-    public static Core resolve(BlockEvent.BlockToolModificationEvent event, Core statistics) {
-        return processResolve(event, statistics, MODIFIED_BLOCK_RULES);
-    }
-
-    public static Core resolve(PlayerInteractEvent.RightClickBlock event, Core statistics) {
-        return processResolve(event, statistics, RIGHT_CLICKED_BLOCK_RULES);
     }
 
     private static <Event> Core processResolve(Event event, Core statistics, List<ActionRule<Event>> rules) {
