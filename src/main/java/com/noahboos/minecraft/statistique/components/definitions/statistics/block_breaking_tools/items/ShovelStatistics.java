@@ -1,14 +1,13 @@
-package com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items;
+package com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.items;
 
 import com.mojang.serialization.Codec;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Statistic;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.ToolCore;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.BlockBreakingToolCore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ShovelStatistics extends ToolCore {
+public class ShovelStatistics extends BlockBreakingToolCore {
     public static final Codec<ShovelStatistics> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(ShovelStatistics::fromMap, ShovelStatistics::toMap);
 
     protected ShovelStatistics(Map<String, Statistic> statistics) {
@@ -25,7 +24,7 @@ public class ShovelStatistics extends ToolCore {
     }
 
     private static Map<String, Statistic> getDefaultStatistics() {
-        Map<String, Statistic> statistics = new HashMap<>(new ToolCore().toMap());
+        Map<String, Statistic> statistics = new HashMap<>(new BlockBreakingToolCore().toMap());
         return statistics;
     }
 

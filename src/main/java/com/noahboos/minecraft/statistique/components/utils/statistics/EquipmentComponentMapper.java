@@ -2,7 +2,7 @@ package com.noahboos.minecraft.statistique.components.utils.statistics;
 
 import com.noahboos.minecraft.statistique.components.DataComponents;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.items.*;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.items.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
 

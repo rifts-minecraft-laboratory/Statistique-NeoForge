@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.components.definitions.statistics.tools;
+package com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools;
 
 import com.mojang.serialization.Codec;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
@@ -8,20 +8,20 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.Stat
 import java.util.HashMap;
 import java.util.Map;
 
-public class ToolCore extends Core {
-    public static final Codec<ToolCore> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(ToolCore::fromMap, ToolCore::toMap);
+public class BlockBreakingToolCore extends Core {
+    public static final Codec<BlockBreakingToolCore> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(BlockBreakingToolCore::fromMap, BlockBreakingToolCore::toMap);
 
-    protected ToolCore(Map<String, Statistic> statistics) {
+    protected BlockBreakingToolCore(Map<String, Statistic> statistics) {
         super(statistics);
     }
 
-    public ToolCore() {
+    public BlockBreakingToolCore() {
         super(getDefaultStatistics());
     }
 
     @Override
-    protected ToolCore create(Map<String, Statistic> statistics) {
-        return new ToolCore(statistics);
+    protected BlockBreakingToolCore create(Map<String, Statistic> statistics) {
+        return new BlockBreakingToolCore(statistics);
     }
 
     private static Map<String, Statistic> getDefaultStatistics() {
@@ -30,10 +30,10 @@ public class ToolCore extends Core {
         return statistics;
     }
 
-    private static ToolCore fromMap(Map<String, Statistic> map) {
-        Map<String, Statistic> statistics = new HashMap<>(new ToolCore().statistics);
+    private static BlockBreakingToolCore fromMap(Map<String, Statistic> map) {
+        Map<String, Statistic> statistics = new HashMap<>(new BlockBreakingToolCore().statistics);
         statistics.putAll(map);
-        return new ToolCore(statistics);
+        return new BlockBreakingToolCore(statistics);
     }
 
     @Override
