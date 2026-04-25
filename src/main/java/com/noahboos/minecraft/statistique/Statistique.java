@@ -2,6 +2,7 @@ package com.noahboos.minecraft.statistique;
 
 import com.noahboos.minecraft.statistique.components.DataComponents;
 import com.noahboos.minecraft.statistique.events.handlers.BlockEventHandler;
+import com.noahboos.minecraft.statistique.events.handlers.EntityEventHandler;
 import com.noahboos.minecraft.statistique.events.handlers.ItemEventHandler;
 import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ public class Statistique {
     public Statistique(IEventBus modEventBus, ModContainer modContainer) {
         DataComponents.COMPONENTS.register(modEventBus);
         NeoForge.EVENT_BUS.register(BlockEventHandler.class);
+        NeoForge.EVENT_BUS.register(EntityEventHandler.class);
         NeoForge.EVENT_BUS.register(ItemEventHandler.class);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
