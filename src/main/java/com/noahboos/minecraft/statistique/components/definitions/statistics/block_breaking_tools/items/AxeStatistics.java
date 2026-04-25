@@ -7,40 +7,19 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.bloc
 import java.util.HashMap;
 import java.util.Map;
 
-public class AxeStatistics extends BlockBreakingToolCore {
-    public static final Codec<AxeStatistics> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(AxeStatistics::fromMap, AxeStatistics::toMap);
+public class AxeStatistics extends BlockBreakingToolCore<AxeStatistics> {
+    public static final Codec<AxeStatistics> CODEC = createCodec(AxeStatistics::new);
 
     protected AxeStatistics(Map<String, Statistic> statistics) {
         super(statistics);
     }
 
     public AxeStatistics() {
-        super(getDefaultStatistics());
+        super();
     }
 
     @Override
     protected AxeStatistics create(Map<String, Statistic> statistics) {
         return new AxeStatistics(statistics);
-    }
-
-    private static Map<String, Statistic> getDefaultStatistics() {
-        Map<String, Statistic> statistics = new HashMap<>(new BlockBreakingToolCore().toMap());
-        return statistics;
-    }
-
-    private static AxeStatistics fromMap(Map<String, Statistic> map) {
-        Map<String, Statistic> statistics = new HashMap<>(new AxeStatistics().statistics);
-        statistics.putAll(map);
-        return new AxeStatistics(statistics);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
     }
 }

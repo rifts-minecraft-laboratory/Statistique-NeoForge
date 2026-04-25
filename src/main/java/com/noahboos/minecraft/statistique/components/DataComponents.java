@@ -12,14 +12,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class DataComponents {
     public static final DeferredRegister<DataComponentType<?>> COMPONENTS = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, Statistique.MOD_ID);
 
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Core>> CORE_STATISTICS = COMPONENTS.register(
-        "core_statistics", () -> DataComponentType.<Core>builder().persistent(Core.CODEC).build()
-    );
-
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BlockBreakingToolCore>> BLOCK_BREAKING_TOOL_CORE_STATISTICS = COMPONENTS.register(
-        "block_breaking_tool_core_statistics", () -> DataComponentType.<BlockBreakingToolCore>builder().persistent(BlockBreakingToolCore.CODEC).build()
-    );
-
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<AxeStatistics>> AXE_STATISTICS = COMPONENTS.register(
         "axe_statistics", () -> DataComponentType.<AxeStatistics>builder().persistent(AxeStatistics.CODEC).build()
     );

@@ -5,48 +5,58 @@ import com.mojang.serialization.Codec;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Function;
 
-public class Core {
+public abstract class Core<T extends Core<T>> {
     protected final Map<String, Statistic> statistics;
-    public static final Codec<Core> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(Core::fromMap, Core::toMap);
 
     protected Core(Map<String, Statistic> statistics) {
         this.statistics = Map.copyOf(statistics);
     }
 
-    public Core() {
+    protected Core() {
         this(Map.of());
     }
 
-    protected Core create(Map<String, Statistic> statistics) {
-        return new Core(statistics);
+    protected abstract T create(Map<String, Statistic> statistics);
+
+    protected Map<String, Statistic> getDefaultStatistics() {
+        return Map.of();
+    }
+
+    protected static <T extends Core<T>> Codec<T> createCodec(Function<Map<String, Statistic>, T> factory) {
+        return Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(
+            map -> {
+                T emptyInstance = factory.apply(Map.of());
+                Map<String, Statistic> statistics = new HashMap<>(emptyInstance.getDefaultStatistics());
+                statistics.putAll(map);
+                return factory.apply(statistics);
+            },
+            Core::toMap
+        );
     }
 
     public Statistic getStatistic(String name) {
         return statistics.get(name);
     }
 
-    public Core setStatistic(String name, float value) {
-        Map<String, Statistic> newStatistics = new HashMap<>(statistics);
+    public T setStatistic(String name, float value) {
+        Map<String, Statistic> _statistics = new HashMap<>(statistics);
         Statistic statistic = statistics.get(name);
 
         if (statistic == null) {
-            newStatistics.put(name, new Statistic(name, value));
+            _statistics.put(name, new Statistic(name, value));
         } else {
-            newStatistics.put(name, statistic.withValue(value));
+            _statistics.put(name, statistic.withValue(value));
         }
 
-        return create(newStatistics);
+        return create(_statistics);
     }
 
-    public Core incrementStatistic(String name, float value) {
+    public T incrementStatistic(String name, float value) {
         Statistic statistic = statistics.get(name);
-        float newValue = (statistic != null ? statistic.value() : 0) + value;
-        return setStatistic(name, newValue);
-    }
-
-    private static Core fromMap(Map<String, Statistic> map) {
-        return new Core(map);
+        float _value = (statistic != null ? statistic.value() : 0) + value;
+        return setStatistic(name, _value);
     }
 
     public Map<String, Statistic> toMap() {
@@ -57,7 +67,7 @@ public class Core {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        Core core = (Core) object;
+        Core<?> core = (Core<?>) object;
         return Objects.equals(statistics, core.statistics);
     }
 

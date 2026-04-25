@@ -7,40 +7,19 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.bloc
 import java.util.HashMap;
 import java.util.Map;
 
-public class ShovelStatistics extends BlockBreakingToolCore {
-    public static final Codec<ShovelStatistics> CODEC = Codec.unboundedMap(Codec.STRING, Statistic.CODEC).xmap(ShovelStatistics::fromMap, ShovelStatistics::toMap);
+public class ShovelStatistics extends BlockBreakingToolCore<ShovelStatistics> {
+    public static final Codec<ShovelStatistics> CODEC = createCodec(ShovelStatistics::new);
 
     protected ShovelStatistics(Map<String, Statistic> statistics) {
         super(statistics);
     }
 
     public ShovelStatistics() {
-        super(getDefaultStatistics());
+        super();
     }
 
     @Override
     protected ShovelStatistics create(Map<String, Statistic> statistics) {
         return new ShovelStatistics(statistics);
-    }
-
-    private static Map<String, Statistic> getDefaultStatistics() {
-        Map<String, Statistic> statistics = new HashMap<>(new BlockBreakingToolCore().toMap());
-        return statistics;
-    }
-
-    private static ShovelStatistics fromMap(Map<String, Statistic> map) {
-        Map<String, Statistic> statistics = new HashMap<>(new ShovelStatistics().statistics);
-        statistics.putAll(map);
-        return new ShovelStatistics(statistics);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
     }
 }
