@@ -3,7 +3,8 @@ package com.noahboos.minecraft.statistique.components.definitions.statistics;
 import net.minecraft.client.resources.language.I18n;
 
 public enum StatisticType {
-    BROKEN_BLOCKS("broken_blocks", "statistique.broken_blocks");
+    BROKEN_BLOCKS("broken_blocks", "statistique.broken_blocks"),
+    DAMAGE_DEALT("damage_dealt", "statistique.damage_dealt"),;
 
     private final String name;
     private final String translationKey;
