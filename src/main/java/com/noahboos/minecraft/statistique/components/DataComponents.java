@@ -2,6 +2,10 @@ package com.noahboos.minecraft.statistique.components;
 
 import com.noahboos.minecraft.statistique.Statistique;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.BootsStatistics;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.ChestplateStatistics;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.HelmetStatistics;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.LeggingsStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.BlockBreakingToolCore;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.items.*;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.items.ShieldStatistics;
@@ -22,16 +26,32 @@ public class DataComponents {
         "axe_statistics", () -> DataComponentType.<AxeStatistics>builder().persistent(AxeStatistics.CODEC).build()
     );
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BootsStatistics>> BOOTS_STATISTICS = COMPONENTS.register(
+        "boots_statistics", () -> DataComponentType.<BootsStatistics>builder().persistent(BootsStatistics.CODEC).build()
+    );
+
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<BowStatistics>> BOW_STATISTICS = COMPONENTS.register(
         "bow_statistics", () -> DataComponentType.<BowStatistics>builder().persistent(BowStatistics.CODEC).build()
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ChestplateStatistics>> CHESTPLATE_STATISTICS = COMPONENTS.register(
+        "chestplate_statistics", () -> DataComponentType.<ChestplateStatistics>builder().persistent(ChestplateStatistics.CODEC).build()
     );
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<CrossbowStatistics>> CROSSBOW_STATISTICS = COMPONENTS.register(
         "crossbow_statistics", () -> DataComponentType.<CrossbowStatistics>builder().persistent(CrossbowStatistics.CODEC).build()
     );
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<HelmetStatistics>> HELMET_STATISTICS = COMPONENTS.register(
+        "helmet_statistics", () -> DataComponentType.<HelmetStatistics>builder().persistent(HelmetStatistics.CODEC).build()
+    );
+
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<HoeStatistics>> HOE_STATISTICS = COMPONENTS.register(
         "hoe_statistics", () -> DataComponentType.<HoeStatistics>builder().persistent(HoeStatistics.CODEC).build()
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<LeggingsStatistics>> LEGGINGS_STATISTICS = COMPONENTS.register(
+        "leggings_statistics", () -> DataComponentType.<LeggingsStatistics>builder().persistent(LeggingsStatistics.CODEC).build()
     );
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<MaceStatistics>> MACE_STATISTICS = COMPONENTS.register(
