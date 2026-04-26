@@ -1,14 +1,17 @@
 package com.noahboos.minecraft.statistique.events.handlers.utils;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.ArmorCore;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.DefensiveWeaponCore;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.OffensiveWeaponCore;
 import com.noahboos.minecraft.statistique.components.utils.statistics.EquipmentComponentMapper;
 import com.noahboos.minecraft.statistique.events.resolvers.OnEntityHurtResolver;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 public class OnEntityHurt {
@@ -72,5 +75,25 @@ public class OnEntityHurt {
                 Logger.getGlobal().info("Victim's off hand statistics has been updated: " + _statistics.toMap().toString());
             }
         }
+
+        List<ItemStack> victimArmor = List.of(
+            victim.getItemBySlot(EquipmentSlot.HEAD),
+            victim.getItemBySlot(EquipmentSlot.CHEST),
+            victim.getItemBySlot(EquipmentSlot.LEGS),
+            victim.getItemBySlot(EquipmentSlot.FEET)
+        );
+
+        victimArmor.forEach(itemStack -> {
+            Core<?> statistics = EquipmentComponentMapper.getStatisticsFromItem(itemStack);
+
+            if (statistics instanceof ArmorCore<?>) {
+                Core<?> _statistics = OnEntityHurtResolver.resolveAsVictim(event, statistics);
+                if (_statistics != null) {
+                    EquipmentComponentMapper.setStatisticsToItem(itemStack, _statistics);
+
+                    Logger.getGlobal().info("Victim's armor statistics has been updated: " + _statistics.toMap().toString());
+                }
+            }
+        });
     }
 }
