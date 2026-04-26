@@ -7,7 +7,6 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class ActionResolver {
     private static final List<ActionRule<BlockEvent.BreakEvent>> BROKEN_BLOCK_RULES = List.of(
@@ -18,16 +17,16 @@ public class ActionResolver {
         // Rules here.
     );
 
-    public static Core resolve(BlockEvent.BreakEvent event, Core statistics) {
+    public static Core<?> resolve(BlockEvent.BreakEvent event, Core<?> statistics) {
         return processResolve(event, statistics, BROKEN_BLOCK_RULES);
     }
 
-    public static Core resolve(LivingDamageEvent.Post event, Core statistics) {
+    public static Core<?> resolve(LivingDamageEvent.Post event, Core<?> statistics) {
         return processResolve(event, statistics, DAMAGED_ENTITY_RULES);
     }
 
-    private static <Event> Core processResolve(Event event, Core statistics, List<ActionRule<Event>> rules) {
-        Core updatedStatistics = statistics;
+    private static <Event> Core<?> processResolve(Event event, Core<?> statistics, List<ActionRule<Event>> rules) {
+        Core<?> updatedStatistics = statistics;
 
         if (event instanceof BlockEvent.BreakEvent) {
             updatedStatistics = updatedStatistics.incrementStatistic(StatisticType.BROKEN_BLOCKS.getName(), 1);
