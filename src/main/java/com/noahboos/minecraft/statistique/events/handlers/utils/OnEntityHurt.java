@@ -1,6 +1,7 @@
 package com.noahboos.minecraft.statistique.events.handlers.utils;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.DefensiveWeaponCore;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.OffensiveWeaponCore;
 import com.noahboos.minecraft.statistique.components.utils.statistics.EquipmentComponentMapper;
 import com.noahboos.minecraft.statistique.events.resolvers.OnEntityHurtResolver;
@@ -21,11 +22,11 @@ public class OnEntityHurt {
         boolean isMainHandWeapon = weapon != null && weapon.is(mainHandItemStack.getItem());
 
         if (isMainHandWeapon && mainHandStatistics instanceof OffensiveWeaponCore<?>) {
-            Core<?> updatedStatistics = OnEntityHurtResolver.resolveAsAttacker(event, mainHandStatistics);
-            if (updatedStatistics != null) {
-                EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
+            Core<?> _statistics = OnEntityHurtResolver.resolveAsAttacker(event, mainHandStatistics);
+            if (_statistics != null) {
+                EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, _statistics);
 
-                Logger.getGlobal().info("Attacker's main hand statistics has been updated: " + updatedStatistics.toMap().toString());
+                Logger.getGlobal().info("Attacker's main hand statistics has been updated: " + _statistics.toMap().toString());
             }
         }
 
@@ -34,16 +35,42 @@ public class OnEntityHurt {
         boolean isOffHandWeapon = weapon != null && weapon.is(offHandItemStack.getItem());
 
         if (isOffHandWeapon && offHandStatistics instanceof OffensiveWeaponCore<?>) {
-            Core<?> updatedStatistics = OnEntityHurtResolver.resolveAsAttacker(event, offHandStatistics);
-            if (updatedStatistics != null) {
-                EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, updatedStatistics);
+            Core<?> _statistics = OnEntityHurtResolver.resolveAsAttacker(event, offHandStatistics);
+            if (_statistics != null) {
+                EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, _statistics);
 
-                Logger.getGlobal().info("Attacker's off hand statistics has been updated: " + updatedStatistics.toMap().toString());
+                Logger.getGlobal().info("Attacker's off hand statistics has been updated: " + _statistics.toMap().toString());
             }
         }
     }
 
     public static void processVictim(LivingDamageEvent.Post event) {
-        // Victim processing will be implemented in this method, yet it is empty. :0
+        LivingEntity victim = event.getEntity();
+
+        ItemStack mainHandItemStack = victim.getMainHandItem();
+        Core<?> mainHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
+        boolean isMainHandDefensiveWeapon = mainHandStatistics instanceof DefensiveWeaponCore<?>;
+
+        if (isMainHandDefensiveWeapon) {
+            Core<?> _statistics = OnEntityHurtResolver.resolveAsVictim(event, mainHandStatistics);
+            if (_statistics != null) {
+                EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, _statistics);
+
+                Logger.getGlobal().info("Victim's main hand statistics has been updated: " + _statistics.toMap().toString());
+            }
+        }
+
+        ItemStack offHandItemStack = victim.getOffhandItem();
+        Core<?> offHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(offHandItemStack);
+        boolean isOffHandDefensiveWeapon = offHandStatistics instanceof DefensiveWeaponCore<?>;
+
+        if (!isMainHandDefensiveWeapon && isOffHandDefensiveWeapon) {
+            Core<?> _statistics = OnEntityHurtResolver.resolveAsVictim(event, offHandStatistics);
+            if (_statistics != null) {
+                EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, _statistics);
+
+                Logger.getGlobal().info("Victim's off hand statistics has been updated: " + _statistics.toMap().toString());
+            }
+        }
     }
 }

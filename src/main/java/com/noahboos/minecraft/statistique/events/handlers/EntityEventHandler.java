@@ -10,5 +10,6 @@ public class EntityEventHandler {
         if (event.getEntity().level().isClientSide()) return;
 
         OnEntityHurt.processAttacker(event);
+        OnEntityHurt.processVictim(event);
     }
 }
