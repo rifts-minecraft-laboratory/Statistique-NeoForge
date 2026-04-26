@@ -21,11 +21,11 @@ public enum StatisticType {
     }
 
     public String getTranslationKey() {
-        return translationKey;
+        return "statistiques." + translationKey;
     }
 
     public String getTranslation() {
-        return I18n.get(translationKey);
+        return I18n.get("statistiques." + translationKey);
     }
 
     public Statistic getNewStatistic() {
