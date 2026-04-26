@@ -9,7 +9,7 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.weap
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
 public class OnEntityHurtResolver {
-    public static Core<?> resolveAsAttacker(LivingDamageEvent.Post event, Core<?> statistics) {
+    public static Core<?> resolveAttackerHand(LivingDamageEvent.Post event, Core<?> statistics) {
         if (!(statistics instanceof OffensiveWeaponCore<?> _statistics)) return statistics;
 
         float damage = Math.round(event.getOriginalDamage() * 2.0f) / 2.0f;

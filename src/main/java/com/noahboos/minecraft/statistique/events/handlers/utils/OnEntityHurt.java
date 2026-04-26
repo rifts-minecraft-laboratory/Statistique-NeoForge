@@ -25,7 +25,7 @@ public class OnEntityHurt {
         boolean isMainHandOffensiveWeapon = weapon != null && weapon.is(mainHandItemStack.getItem());
 
         if (isMainHandOffensiveWeapon && mainHandStatistics instanceof OffensiveWeaponCore<?>) {
-            Core<?> _statistics = OnEntityHurtResolver.resolveAsAttacker(event, mainHandStatistics);
+            Core<?> _statistics = OnEntityHurtResolver.resolveAttackerHand(event, mainHandStatistics);
             if (_statistics != null) {
                 EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, _statistics);
 
@@ -38,7 +38,7 @@ public class OnEntityHurt {
         boolean isOffHandOffensiveWeapon = weapon != null && weapon.is(offHandItemStack.getItem());
 
         if (isOffHandOffensiveWeapon && offHandStatistics instanceof OffensiveWeaponCore<?>) {
-            Core<?> _statistics = OnEntityHurtResolver.resolveAsAttacker(event, offHandStatistics);
+            Core<?> _statistics = OnEntityHurtResolver.resolveAttackerHand(event, offHandStatistics);
             if (_statistics != null) {
                 EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, _statistics);
 
