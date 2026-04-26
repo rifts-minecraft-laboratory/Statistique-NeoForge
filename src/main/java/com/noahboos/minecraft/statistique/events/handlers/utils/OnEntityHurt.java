@@ -14,10 +14,13 @@ public class OnEntityHurt {
     public static void processAttacker(LivingDamageEvent.Post event) {
         if (!(event.getSource().getEntity() instanceof LivingEntity attacker)) return;
 
+        ItemStack weapon = event.getSource().getWeaponItem();
+
         ItemStack mainHandItemStack = attacker.getMainHandItem();
         Core<?> mainHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
+        boolean isMainHandWeapon = weapon != null && weapon.is(mainHandItemStack.getItem());
 
-        if (mainHandStatistics instanceof OffensiveWeaponCore<?>) {
+        if (isMainHandWeapon && mainHandStatistics instanceof OffensiveWeaponCore<?>) {
             Core<?> updatedStatistics = ActionResolver.resolve(event, mainHandStatistics);
             if (updatedStatistics != null) {
                 EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
@@ -28,8 +31,9 @@ public class OnEntityHurt {
 
         ItemStack offHandItemStack = attacker.getOffhandItem();
         Core<?> offHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(offHandItemStack);
+        boolean isOffHandWeapon = weapon != null && weapon.is(offHandItemStack.getItem());
 
-        if (offHandStatistics instanceof OffensiveWeaponCore<?>) {
+        if (isOffHandWeapon && offHandStatistics instanceof OffensiveWeaponCore<?>) {
             Core<?> updatedStatistics = ActionResolver.resolve(event, offHandStatistics);
             if (updatedStatistics != null) {
                 EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, updatedStatistics);
