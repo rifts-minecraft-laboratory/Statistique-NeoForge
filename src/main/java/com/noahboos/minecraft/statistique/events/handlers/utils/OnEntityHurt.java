@@ -48,6 +48,11 @@ public class OnEntityHurt {
     }
 
     public static void processVictim(LivingDamageEvent.Post event) {
+        processVictimHands(event);
+        processVictimArmor(event);
+    }
+
+    public static void processVictimHands(LivingDamageEvent.Post event) {
         LivingEntity victim = event.getEntity();
 
         ItemStack mainHandItemStack = victim.getMainHandItem();
@@ -75,6 +80,10 @@ public class OnEntityHurt {
                 Logger.getGlobal().info("Victim's off hand statistics has been updated: " + _statistics.toMap().toString());
             }
         }
+    }
+
+    public static void processVictimArmor(LivingDamageEvent.Post event) {
+        LivingEntity victim = event.getEntity();
 
         List<ItemStack> victimArmor = List.of(
             victim.getItemBySlot(EquipmentSlot.HEAD),
