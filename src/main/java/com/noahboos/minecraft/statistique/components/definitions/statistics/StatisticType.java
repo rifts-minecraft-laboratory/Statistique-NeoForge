@@ -1,19 +1,15 @@
 package com.noahboos.minecraft.statistique.components.definitions.statistics;
 
-import net.minecraft.client.resources.language.I18n;
-
 public enum StatisticType {
-    BROKEN_BLOCKS("broken_blocks", "statistique.broken_blocks"),
-    BLOCKED_DAMAGES("blocked_damages", "statistique.blocked_damages"),
-    DEALT_DAMAGES("dealt_damages", "statistique.dealt_damages"),
-    MITIGATED_DAMAGES("mitigated_damages", "statistique.mitigated_damages"),;
+    BROKEN_BLOCKS("broken_blocks"),
+    BLOCKED_DAMAGES("blocked_damages"),
+    DEALT_DAMAGES("dealt_damages"),
+    MITIGATED_DAMAGES("mitigated_damages"),;
 
     private final String name;
-    private final String translationKey;
 
-    StatisticType(String name, String translationKey) {
+    StatisticType(String name) {
         this.name = name;
-        this.translationKey = translationKey;
     }
 
     public String getName() {
@@ -21,11 +17,7 @@ public enum StatisticType {
     }
 
     public String getTranslationKey() {
-        return "statistiques." + translationKey;
-    }
-
-    public String getTranslation() {
-        return I18n.get("statistiques." + translationKey);
+        return "statistiques.statistique." + name;
     }
 
     public Statistic getNewStatistic() {
