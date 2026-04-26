@@ -3,7 +3,7 @@ package com.noahboos.minecraft.statistique.events.handlers.utils;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.OffensiveWeaponCore;
 import com.noahboos.minecraft.statistique.components.utils.statistics.EquipmentComponentMapper;
-import com.noahboos.minecraft.statistique.events.resolvers.ActionResolver;
+import com.noahboos.minecraft.statistique.events.resolvers.OnEntityHurtResolver;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
@@ -21,7 +21,7 @@ public class OnEntityHurt {
         boolean isMainHandWeapon = weapon != null && weapon.is(mainHandItemStack.getItem());
 
         if (isMainHandWeapon && mainHandStatistics instanceof OffensiveWeaponCore<?>) {
-            Core<?> updatedStatistics = ActionResolver.resolve(event, mainHandStatistics);
+            Core<?> updatedStatistics = OnEntityHurtResolver.resolveAsAttacker(event, mainHandStatistics);
             if (updatedStatistics != null) {
                 EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
 
@@ -34,7 +34,7 @@ public class OnEntityHurt {
         boolean isOffHandWeapon = weapon != null && weapon.is(offHandItemStack.getItem());
 
         if (isOffHandWeapon && offHandStatistics instanceof OffensiveWeaponCore<?>) {
-            Core<?> updatedStatistics = ActionResolver.resolve(event, offHandStatistics);
+            Core<?> updatedStatistics = OnEntityHurtResolver.resolveAsAttacker(event, offHandStatistics);
             if (updatedStatistics != null) {
                 EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, updatedStatistics);
 
