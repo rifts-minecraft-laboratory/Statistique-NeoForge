@@ -32,7 +32,7 @@ public class OnEntityHurtResolver {
     public static Core<?> resolveVictimArmor(LivingDamageEvent.Post event, Core<?> statistics) {
         if (!(statistics instanceof ArmorCore<?> _statistics)) return statistics;
 
-        float damageTaken = Math.round(event.getOriginalDamage() * 2.0f) / 2.0f;
+        float damageTaken = Math.round((event.getOriginalDamage() - event.getNewDamage()) * 2.0f) / 2.0f;
         _statistics = _statistics.incrementStatistic(StatisticType.DAMAGE_TAKEN.getName(), Math.abs(damageTaken));
 
         return _statistics;
