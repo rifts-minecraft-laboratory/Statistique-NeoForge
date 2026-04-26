@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.components.definitions.statistics.armors;
+package com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Statistic;
@@ -7,19 +7,19 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.Stat
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ArmorCore<T extends ArmorCore<T>> extends Core<T> {
-    protected ArmorCore(Map<String, Statistic> statistics) {
+public abstract class DefensiveWeaponCore<T extends DefensiveWeaponCore<T>> extends Core<T> {
+    protected DefensiveWeaponCore(Map<String, Statistic> statistics) {
         super(statistics);
     }
 
-    public ArmorCore() {
+    public DefensiveWeaponCore() {
         super();
     }
 
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.MITIGATED_DAMAGES.getName(), StatisticType.MITIGATED_DAMAGES.getNewStatistic());
+        // All the statistics that should be common to defensive weapons will be added here. There are none for now. :3
         return statistics;
     }
 }

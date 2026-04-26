@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.components.definitions.statistics.armors;
+package com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Statistic;
@@ -7,19 +7,19 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.Stat
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ArmorCore<T extends ArmorCore<T>> extends Core<T> {
-    protected ArmorCore(Map<String, Statistic> statistics) {
+public abstract class BlockBreakingToolCore<T extends BlockBreakingToolCore<T>> extends Core<T> {
+    protected BlockBreakingToolCore(Map<String, Statistic> statistics) {
         super(statistics);
     }
 
-    public ArmorCore() {
+    public BlockBreakingToolCore() {
         super();
     }
 
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.MITIGATED_DAMAGES.getName(), StatisticType.MITIGATED_DAMAGES.getNewStatistic());
+        statistics.put(StatisticType.BROKEN_BLOCKS.getName(), StatisticType.BROKEN_BLOCKS.getNewStatistic());
         return statistics;
     }
 }

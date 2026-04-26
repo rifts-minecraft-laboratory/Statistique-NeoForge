@@ -1,3 +1,7 @@
 {
-
+  "statistiques.tooltip.title": "Statistics:",
+  "statistiques.statistique.broken_blocks": "Broken blocks : %1$s",
+  "statistiques.statistique.blocked_damages": "Blocked damages : %1$s",
+  "statistiques.statistique.dealt_damages": "Dealt damages : %1$s",
+  "statistiques.statistique.mitigated_damages": "Mitigated damages : %1$s"
 }

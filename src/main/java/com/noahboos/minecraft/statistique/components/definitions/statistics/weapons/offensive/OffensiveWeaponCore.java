@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.components.definitions.statistics.armors;
+package com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Statistic;
@@ -7,19 +7,19 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.Stat
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class ArmorCore<T extends ArmorCore<T>> extends Core<T> {
-    protected ArmorCore(Map<String, Statistic> statistics) {
+public abstract class OffensiveWeaponCore<T extends OffensiveWeaponCore<T>> extends Core<T> {
+    protected OffensiveWeaponCore(Map<String, Statistic> statistics) {
         super(statistics);
     }
 
-    public ArmorCore() {
+    public OffensiveWeaponCore() {
         super();
     }
 
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.MITIGATED_DAMAGES.getName(), StatisticType.MITIGATED_DAMAGES.getNewStatistic());
+        statistics.put(StatisticType.DEALT_DAMAGES.getName(), StatisticType.DEALT_DAMAGES.getNewStatistic());
         return statistics;
     }
 }
