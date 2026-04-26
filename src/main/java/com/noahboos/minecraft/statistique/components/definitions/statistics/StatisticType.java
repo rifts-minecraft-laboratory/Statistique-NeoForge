@@ -4,9 +4,9 @@ import net.minecraft.client.resources.language.I18n;
 
 public enum StatisticType {
     BROKEN_BLOCKS("broken_blocks", "statistique.broken_blocks"),
-    DAMAGE_BLOCKED("damage_blocked", "statistique.damage_blocked"),
-    DAMAGE_DEALT("damage_dealt", "statistique.damage_dealt"),
-    DAMAGE_TAKEN("damage_taken", "statistique.damage_taken"),;
+    BLOCKED_DAMAGES("blocked_damages", "statistique.blocked_damages"),
+    DEALT_DAMAGES("dealt_damages", "statistique.dealt_damages"),
+    MITIGATED_DAMAGES("mitigated_damages", "statistique.mitigated_damages"),;
 
     private final String name;
     private final String translationKey;

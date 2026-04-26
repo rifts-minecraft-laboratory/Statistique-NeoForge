@@ -13,7 +13,7 @@ public class OnEntityHurtResolver {
         if (!(statistics instanceof OffensiveWeaponCore<?> _statistics)) return statistics;
 
         float damage = Math.round(event.getOriginalDamage() * 2.0f) / 2.0f;
-        _statistics = _statistics.incrementStatistic(StatisticType.DAMAGE_DEALT.getName(), damage);
+        _statistics = _statistics.incrementStatistic(StatisticType.DEALT_DAMAGES.getName(), damage);
 
         return _statistics;
     }
@@ -23,7 +23,7 @@ public class OnEntityHurtResolver {
 
         if (_statistics instanceof ShieldStatistics) {
             float blockedDamage = Math.round(event.getBlockedDamage() * 2.0f) / 2.0f;
-            _statistics = _statistics.incrementStatistic(StatisticType.DAMAGE_BLOCKED.getName(), Math.abs(blockedDamage));
+            _statistics = _statistics.incrementStatistic(StatisticType.BLOCKED_DAMAGES.getName(), Math.abs(blockedDamage));
         }
 
         return _statistics;
@@ -33,7 +33,7 @@ public class OnEntityHurtResolver {
         if (!(statistics instanceof ArmorCore<?> _statistics)) return statistics;
 
         float damageTaken = Math.round((event.getOriginalDamage() - event.getNewDamage()) * 2.0f) / 2.0f;
-        _statistics = _statistics.incrementStatistic(StatisticType.DAMAGE_TAKEN.getName(), Math.abs(damageTaken));
+        _statistics = _statistics.incrementStatistic(StatisticType.MITIGATED_DAMAGES.getName(), Math.abs(damageTaken));
 
         return _statistics;
     }

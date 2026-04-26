@@ -19,7 +19,7 @@ public abstract class OffensiveWeaponCore<T extends OffensiveWeaponCore<T>> exte
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.DAMAGE_DEALT.getName(), StatisticType.DAMAGE_DEALT.getNewStatistic());
+        statistics.put(StatisticType.DEALT_DAMAGES.getName(), StatisticType.DEALT_DAMAGES.getNewStatistic());
         return statistics;
     }
 }
