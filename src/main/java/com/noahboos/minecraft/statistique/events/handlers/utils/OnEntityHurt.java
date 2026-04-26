@@ -25,6 +25,18 @@ public class OnEntityHurt {
                 Logger.getGlobal().info("Attacker's main hand statistics has been updated: " + updatedStatistics.toMap().toString());
             }
         }
+
+        ItemStack offHandItemStack = attacker.getOffhandItem();
+        Core<?> offHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(offHandItemStack);
+
+        if (offHandStatistics instanceof OffensiveWeaponCore<?>) {
+            Core<?> updatedStatistics = ActionResolver.resolve(event, offHandStatistics);
+            if (updatedStatistics != null) {
+                EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, updatedStatistics);
+
+                Logger.getGlobal().info("Attacker's off hand statistics has been updated: " + updatedStatistics.toMap().toString());
+            }
+        }
     }
 
     public static void processVictim(LivingDamageEvent.Post event) {
