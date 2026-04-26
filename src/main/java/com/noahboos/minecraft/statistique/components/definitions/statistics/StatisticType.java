@@ -4,6 +4,7 @@ import net.minecraft.client.resources.language.I18n;
 
 public enum StatisticType {
     BROKEN_BLOCKS("broken_blocks", "statistique.broken_blocks"),
+    DAMAGE_BLOCKED("damage_blocked", "statistique.damage_blocked"),
     DAMAGE_DEALT("damage_dealt", "statistique.damage_dealt"),;
 
     private final String name;

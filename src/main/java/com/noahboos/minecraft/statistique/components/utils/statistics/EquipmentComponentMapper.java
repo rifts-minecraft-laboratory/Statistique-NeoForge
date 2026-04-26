@@ -3,6 +3,7 @@ package com.noahboos.minecraft.statistique.components.utils.statistics;
 import com.noahboos.minecraft.statistique.components.DataComponents;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.items.*;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.items.ShieldStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.hybride.items.TridentStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.melee.items.MaceStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.melee.items.SwordStatistics;
@@ -12,7 +13,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
 
 public class EquipmentComponentMapper {
-    public static Core getStatisticsFromItem(ItemStack itemStack) {
+    public static Core<?> getStatisticsFromItem(ItemStack itemStack) {
         if (itemStack.isEmpty()) return null;
 
         if (itemStack.getItem() instanceof AxeItem) {
@@ -36,6 +37,9 @@ public class EquipmentComponentMapper {
         if (itemStack.getItem() instanceof ShearsItem) {
             return itemStack.getComponents().get(DataComponents.SHEARS_STATISTICS.get());
         }
+        if (itemStack.getItem() instanceof ShieldItem) {
+            return itemStack.getComponents().get(DataComponents.SHIELD_STATISTICS.get());
+        }
         if (itemStack.getItem() instanceof ShovelItem) {
             return itemStack.getComponents().get(DataComponents.SHOVEL_STATISTICS.get());
         }
@@ -49,7 +53,7 @@ public class EquipmentComponentMapper {
         return null;
     }
 
-    public static void setStatisticsToItem(ItemStack itemStack, Core statistics) {
+    public static void setStatisticsToItem(ItemStack itemStack, Core<?> statistics) {
         if (itemStack.isEmpty()) return;
 
         if (itemStack.getItem() instanceof AxeItem) {
@@ -106,6 +110,14 @@ public class EquipmentComponentMapper {
                 itemStack.set(DataComponents.SHEARS_STATISTICS.get(), (ShearsStatistics) statistics);
             } else {
                 itemStack.set(DataComponents.SHEARS_STATISTICS.get(), new ShearsStatistics());
+            }
+        }
+        if (itemStack.getItem() instanceof ShieldItem) {
+            if (statistics == null && itemStack.getComponents().has(DataComponents.SHIELD_STATISTICS.get())) return;
+            if (statistics != null) {
+                itemStack.set(DataComponents.SHIELD_STATISTICS.get(), (ShieldStatistics) statistics);
+            } else {
+                itemStack.set(DataComponents.SHIELD_STATISTICS.get(), new ShieldStatistics());
             }
         }
         if (itemStack.getItem() instanceof ShovelItem) {

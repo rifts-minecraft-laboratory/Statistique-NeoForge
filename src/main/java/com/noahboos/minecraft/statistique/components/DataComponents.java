@@ -4,6 +4,7 @@ import com.noahboos.minecraft.statistique.Statistique;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.BlockBreakingToolCore;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.items.*;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.items.ShieldStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.hybride.items.TridentStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.melee.items.MaceStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.melee.items.SwordStatistics;
@@ -43,6 +44,10 @@ public class DataComponents {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShearsStatistics>> SHEARS_STATISTICS = COMPONENTS.register(
         "shears_statistics", () -> DataComponentType.<ShearsStatistics>builder().persistent(ShearsStatistics.CODEC).build()
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShieldStatistics>> SHIELD_STATISTICS = COMPONENTS.register(
+        "shield_statistics", () -> DataComponentType.<ShieldStatistics>builder().persistent(ShieldStatistics.CODEC).build()
     );
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ShovelStatistics>> SHOVEL_STATISTICS = COMPONENTS.register(
