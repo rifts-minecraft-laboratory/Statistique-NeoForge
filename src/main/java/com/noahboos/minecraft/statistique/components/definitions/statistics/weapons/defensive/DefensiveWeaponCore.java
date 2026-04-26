@@ -19,7 +19,7 @@ public abstract class DefensiveWeaponCore<T extends DefensiveWeaponCore<T>> exte
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.DAMAGE_BLOCKED.getName(), StatisticType.DAMAGE_BLOCKED.getNewStatistic());
+        // All the statistics that should be common to defensive weapons will be added here. There are none for now. :3
         return statistics;
     }
 }

@@ -2,6 +2,7 @@ package com.noahboos.minecraft.statistique.components.definitions.statistics.wea
 
 import com.mojang.serialization.Codec;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Statistic;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.DefensiveWeaponCore;
 
 import java.util.Map;
@@ -20,5 +21,12 @@ public class ShieldStatistics extends DefensiveWeaponCore<ShieldStatistics> {
     @Override
     protected ShieldStatistics create(Map<String, Statistic> statistics) {
         return new ShieldStatistics(statistics);
+    }
+
+    @Override
+    protected Map<String, Statistic> getDefaultStatistics() {
+        Map<String, Statistic> statistics = super.getDefaultStatistics();
+        statistics.put(StatisticType.DAMAGE_BLOCKED.getName(), StatisticType.DAMAGE_BLOCKED.getNewStatistic());
+        return statistics;
     }
 }
