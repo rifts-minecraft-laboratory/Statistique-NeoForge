@@ -3,5 +3,9 @@
   "statistiques.statistique.broken_blocks": "Broken blocks : %1$s",
   "statistiques.statistique.blocked_damages": "Blocked damages : %1$s",
   "statistiques.statistique.dealt_damages": "Dealt damages : %1$s",
+  "statistiques.statistique.killed_entities": "Killed entities : %1$s",
+  "statistiques.statistique.killed_hostile_entities": "Killed hostile entities : %1$s",
+  "statistiques.statistique.killed_neutral_entities": "Killed neutral entities : %1$s",
+  "statistiques.statistique.killed_passive_entities": "Killed passive entities : %1$s",
   "statistiques.statistique.mitigated_damages": "Mitigated damages : %1$s"
 }

@@ -3,5 +3,9 @@
   "statistiques.statistique.broken_blocks": "Blocs cassés : %1$s",
   "statistiques.statistique.blocked_damages": "Dégâts bloqués : %1$s",
   "statistiques.statistique.dealt_damages": "Dégâts infligés : %1$s",
+  "statistiques.statistique.killed_entities": "Entités tuées : %1$s",
+  "statistiques.statistique.killed_hostile_entities": "Entités hostiles tuées : %1$s",
+  "statistiques.statistique.killed_neutral_entities": "Entités neutres tuées : %1$s",
+  "statistiques.statistique.killed_passive_entities": "Entités passives tuées : %1$s",
   "statistiques.statistique.mitigated_damages": "Dégâts réduits : %1$s"
 }
