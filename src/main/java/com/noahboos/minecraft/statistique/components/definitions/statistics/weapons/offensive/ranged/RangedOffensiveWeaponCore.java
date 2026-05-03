@@ -19,9 +19,9 @@ public abstract class RangedOffensiveWeaponCore<T extends RangedOffensiveWeaponC
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.HIT_ARROWS.getName(), StatisticType.HIT_ARROWS.getNewStatistic());
-        statistics.put(StatisticType.MISSED_ARROWS.getName(), StatisticType.MISSED_ARROWS.getNewStatistic());
-        statistics.put(StatisticType.TOTAL_SHOT_ARROWS.getName(), StatisticType.TOTAL_SHOT_ARROWS.getNewStatistic());
+        statistics.put(StatisticType.ARROWS_HIT.getName(), StatisticType.ARROWS_HIT.getNewStatistic());
+        statistics.put(StatisticType.ARROWS_MISSED.getName(), StatisticType.ARROWS_MISSED.getNewStatistic());
+        statistics.put(StatisticType.ARROWS_SHOT.getName(), StatisticType.ARROWS_SHOT.getNewStatistic());
         return statistics;
     }
 }

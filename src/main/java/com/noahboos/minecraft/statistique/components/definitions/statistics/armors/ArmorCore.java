@@ -19,7 +19,7 @@ public abstract class ArmorCore<T extends ArmorCore<T>> extends Core<T> {
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.MITIGATED_DAMAGES.getName(), StatisticType.MITIGATED_DAMAGES.getNewStatistic());
+        statistics.put(StatisticType.DAMAGES_MITIGATED.getName(), StatisticType.DAMAGES_MITIGATED.getNewStatistic());
         return statistics;
     }
 }

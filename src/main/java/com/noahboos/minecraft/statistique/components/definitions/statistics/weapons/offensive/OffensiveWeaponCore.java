@@ -19,11 +19,11 @@ public abstract class OffensiveWeaponCore<T extends OffensiveWeaponCore<T>> exte
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.DEALT_DAMAGES.getName(), StatisticType.DEALT_DAMAGES.getNewStatistic());
-        statistics.put(StatisticType.KILLED_ENTITIES.getName(), StatisticType.KILLED_ENTITIES.getNewStatistic());
-        statistics.put(StatisticType.KILLED_HOSTILE_ENTITIES.getName(), StatisticType.KILLED_HOSTILE_ENTITIES.getNewStatistic());
-        statistics.put(StatisticType.KILLED_NEUTRAL_ENTITIES.getName(), StatisticType.KILLED_NEUTRAL_ENTITIES.getNewStatistic());
-        statistics.put(StatisticType.KILLED_PASSIVE_ENTITIES.getName(), StatisticType.KILLED_PASSIVE_ENTITIES.getNewStatistic());
+        statistics.put(StatisticType.DAMAGES_DEALT.getName(), StatisticType.DAMAGES_DEALT.getNewStatistic());
+        statistics.put(StatisticType.ENTITIES_KILLED.getName(), StatisticType.ENTITIES_KILLED.getNewStatistic());
+        statistics.put(StatisticType.ENTITIES_KILLED_HOSTILE.getName(), StatisticType.ENTITIES_KILLED_HOSTILE.getNewStatistic());
+        statistics.put(StatisticType.ENTITIES_KILLED_NEUTRAL.getName(), StatisticType.ENTITIES_KILLED_NEUTRAL.getNewStatistic());
+        statistics.put(StatisticType.ENTITIES_KILLED_PASSIVE.getName(), StatisticType.ENTITIES_KILLED_PASSIVE.getNewStatistic());
         return statistics;
     }
 }

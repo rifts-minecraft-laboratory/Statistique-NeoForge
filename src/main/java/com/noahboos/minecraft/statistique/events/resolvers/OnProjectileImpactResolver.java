@@ -22,14 +22,14 @@ public class OnProjectileImpactResolver {
     public static Core<?> resolveProjectileAsArrow(ProjectileImpactEvent event, Core<?> statistics) {
         if (!(statistics instanceof RangedOffensiveWeaponCore<?> _statistics)) return statistics;
 
-        _statistics = _statistics.incrementStatistic(StatisticType.TOTAL_SHOT_ARROWS.getName(), 1);
+        _statistics = _statistics.incrementStatistic(StatisticType.ARROWS_SHOT.getName(), 1);
 
         HitResult hitResult = event.getRayTraceResult();
 
         if (hitResult.getType() == HitResult.Type.ENTITY) {
-            _statistics = _statistics.incrementStatistic(StatisticType.HIT_ARROWS.getName(), 1);
+            _statistics = _statistics.incrementStatistic(StatisticType.ARROWS_HIT.getName(), 1);
         } else if (hitResult.getType() == HitResult.Type.BLOCK) {
-            _statistics = _statistics.incrementStatistic(StatisticType.MISSED_ARROWS.getName(), 1);
+            _statistics = _statistics.incrementStatistic(StatisticType.ARROWS_MISSED.getName(), 1);
         }
 
         return _statistics;
@@ -38,14 +38,14 @@ public class OnProjectileImpactResolver {
     public static Core<?> resolveProjectileAsThrownTrident(ProjectileImpactEvent event, Core<?> statistics) {
         if (!(statistics instanceof TridentStatistics _statistics)) return statistics;
 
-        _statistics = _statistics.incrementStatistic(StatisticType.TOTAL_THROWN_TRIDENTS.getName(), 1);
+        _statistics = _statistics.incrementStatistic(StatisticType.TRIDENTS_THROWN.getName(), 1);
 
         HitResult hitResult = event.getRayTraceResult();
 
         if (hitResult.getType() == HitResult.Type.ENTITY) {
-            _statistics = _statistics.incrementStatistic(StatisticType.HIT_TRIDENTS.getName(), 1);
+            _statistics = _statistics.incrementStatistic(StatisticType.TRIDENTS_HIT.getName(), 1);
         } else if (hitResult.getType() == HitResult.Type.BLOCK) {
-            _statistics = _statistics.incrementStatistic(StatisticType.MISSED_TRIDENTS.getName(), 1);
+            _statistics = _statistics.incrementStatistic(StatisticType.TRIDENTS_MISSED.getName(), 1);
         }
 
         return _statistics;

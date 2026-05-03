@@ -15,17 +15,17 @@ public class OnEntityDeathResolver {
 
         LivingEntity victim = event.getEntity();
 
-        _statistics = _statistics.incrementStatistic(StatisticType.KILLED_ENTITIES.getName(), 1);
+        _statistics = _statistics.incrementStatistic(StatisticType.ENTITIES_KILLED.getName(), 1);
 
         switch (victim) {
             case Monster monster -> {
-                _statistics = _statistics.incrementStatistic(StatisticType.KILLED_HOSTILE_ENTITIES.getName(), 1);
+                _statistics = _statistics.incrementStatistic(StatisticType.ENTITIES_KILLED_HOSTILE.getName(), 1);
             }
             case NeutralMob neutralMob -> {
-                _statistics = _statistics.incrementStatistic(StatisticType.KILLED_NEUTRAL_ENTITIES.getName(), 1);
+                _statistics = _statistics.incrementStatistic(StatisticType.ENTITIES_KILLED_NEUTRAL.getName(), 1);
             }
             case Animal animal -> {
-                _statistics = _statistics.incrementStatistic(StatisticType.KILLED_PASSIVE_ENTITIES.getName(), 1);
+                _statistics = _statistics.incrementStatistic(StatisticType.ENTITIES_KILLED_PASSIVE.getName(), 1);
             }
             default -> {
                 // TODO - Could be a good idea to implement the treatment of a "KILLED_OTHER_ENTITIES" statistic.

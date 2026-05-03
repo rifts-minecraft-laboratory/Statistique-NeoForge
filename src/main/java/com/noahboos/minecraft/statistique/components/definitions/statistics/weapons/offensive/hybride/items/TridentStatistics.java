@@ -27,9 +27,9 @@ public class TridentStatistics extends OffensiveWeaponCore<TridentStatistics> {
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.HIT_TRIDENTS.getName(), StatisticType.HIT_TRIDENTS.getNewStatistic());
-        statistics.put(StatisticType.MISSED_TRIDENTS.getName(), StatisticType.MISSED_TRIDENTS.getNewStatistic());
-        statistics.put(StatisticType.TOTAL_THROWN_TRIDENTS.getName(), StatisticType.TOTAL_THROWN_TRIDENTS.getNewStatistic());
+        statistics.put(StatisticType.TRIDENTS_HIT.getName(), StatisticType.TRIDENTS_HIT.getNewStatistic());
+        statistics.put(StatisticType.TRIDENTS_MISSED.getName(), StatisticType.TRIDENTS_MISSED.getNewStatistic());
+        statistics.put(StatisticType.TRIDENTS_THROWN.getName(), StatisticType.TRIDENTS_THROWN.getNewStatistic());
         return statistics;
     }
 }
