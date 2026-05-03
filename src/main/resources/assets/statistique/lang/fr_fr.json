@@ -4,11 +4,14 @@
   "statistiques.statistique.blocked_damages": "Dégâts bloqués : %1$s",
   "statistiques.statistique.dealt_damages": "Dégâts infligés : %1$s",
   "statistiques.statistique.hit_arrows": "Flèches touchées : %1$s",
+  "statistiques.statistique.hit_tridents": "Tridents lancés touchés : %1$s",
   "statistiques.statistique.killed_entities": "Entités tuées : %1$s",
   "statistiques.statistique.killed_hostile_entities": "Entités hostiles tuées : %1$s",
   "statistiques.statistique.killed_neutral_entities": "Entités neutres tuées : %1$s",
   "statistiques.statistique.killed_passive_entities": "Entités passives tuées : %1$s",
   "statistiques.statistique.missed_arrows": "Flèches manquées : %1$s",
+  "statistiques.statistique.missed_tridents": "Tridents lancés manqués : %1$s",
   "statistiques.statistique.total_shot_arrows": "Total de flèches tirées : %1$s",
+  "statistiques.statistique.total_thrown_tridents": "Total de tridents lancés : %1$s",
   "statistiques.statistique.mitigated_damages": "Dégâts réduits : %1$s"
 }

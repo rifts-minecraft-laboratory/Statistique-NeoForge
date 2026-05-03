@@ -4,11 +4,14 @@
   "statistiques.statistique.blocked_damages": "Blocked damages : %1$s",
   "statistiques.statistique.dealt_damages": "Dealt damages : %1$s",
   "statistiques.statistique.hit_arrows": "Hit arrows : %1$s",
+  "statistiques.statistique.hit_tridents": "Hit tridents : %1$s",
   "statistiques.statistique.killed_entities": "Killed entities : %1$s",
   "statistiques.statistique.killed_hostile_entities": "Killed hostile entities : %1$s",
   "statistiques.statistique.killed_neutral_entities": "Killed neutral entities : %1$s",
   "statistiques.statistique.killed_passive_entities": "Killed passive entities : %1$s",
   "statistiques.statistique.missed_arrows": "Missed arrows : %1$s",
+  "statistiques.statistique.missed_tridents": "Missed tridents : %1$s",
   "statistiques.statistique.total_shot_arrows": "Total shot arrows : %1$s",
+  "statistiques.statistique.total_thrown_tridents": "Total tridents thrown : %1$s",
   "statistiques.statistique.mitigated_damages": "Mitigated damages : %1$s"
 }
