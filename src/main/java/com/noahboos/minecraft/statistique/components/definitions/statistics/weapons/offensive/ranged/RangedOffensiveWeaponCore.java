@@ -1,6 +1,7 @@
 package com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.ranged;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Statistic;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.OffensiveWeaponCore;
 
 import java.util.HashMap;
@@ -18,7 +19,9 @@ public abstract class RangedOffensiveWeaponCore<T extends RangedOffensiveWeaponC
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        // Common statistics of the ranged offensive weapon will be added here. None for now. :3
+        statistics.put(StatisticType.ARROWS_HIT.getName(), StatisticType.ARROWS_HIT.getNewStatistic());
+        statistics.put(StatisticType.ARROWS_MISSED.getName(), StatisticType.ARROWS_MISSED.getNewStatistic());
+        statistics.put(StatisticType.ARROWS_SHOT.getName(), StatisticType.ARROWS_SHOT.getNewStatistic());
         return statistics;
     }
 }

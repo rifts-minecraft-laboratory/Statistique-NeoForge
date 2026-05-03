@@ -3,14 +3,13 @@ package com.noahboos.minecraft.statistique.events.resolvers;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.BlockBreakingToolCore;
-import com.noahboos.minecraft.statistique.events.rules.*;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 public class OnBrokenBlockResolver {
     public static Core<?> resolve(BlockEvent.BreakEvent event, Core<?> statistics) {
         if (!(statistics instanceof BlockBreakingToolCore<?> _statistics)) return statistics;
 
-        _statistics = _statistics.incrementStatistic(StatisticType.BROKEN_BLOCKS.getName(), 1);
+        _statistics = _statistics.incrementStatistic(StatisticType.BLOCKS_BROKEN.getName(), 1);
 
         return _statistics;
     }

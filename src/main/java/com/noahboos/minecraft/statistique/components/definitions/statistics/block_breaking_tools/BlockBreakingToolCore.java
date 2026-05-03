@@ -19,7 +19,7 @@ public abstract class BlockBreakingToolCore<T extends BlockBreakingToolCore<T>> 
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = new HashMap<>(super.getDefaultStatistics());
-        statistics.put(StatisticType.BROKEN_BLOCKS.getName(), StatisticType.BROKEN_BLOCKS.getNewStatistic());
+        statistics.put(StatisticType.BLOCKS_BROKEN.getName(), StatisticType.BLOCKS_BROKEN.getNewStatistic());
         return statistics;
     }
 }

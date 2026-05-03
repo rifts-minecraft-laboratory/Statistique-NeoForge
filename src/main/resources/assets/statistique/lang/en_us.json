@@ -1,7 +1,17 @@
 {
   "statistiques.tooltip.title": "Statistics:",
-  "statistiques.statistique.broken_blocks": "Broken blocks : %1$s",
-  "statistiques.statistique.blocked_damages": "Blocked damages : %1$s",
-  "statistiques.statistique.dealt_damages": "Dealt damages : %1$s",
-  "statistiques.statistique.mitigated_damages": "Mitigated damages : %1$s"
+  "statistiques.statistique.arrows_hit": "Hit arrows : %1$s",
+  "statistiques.statistique.arrows_missed": "Missed arrows : %1$s",
+  "statistiques.statistique.arrows_shot": "Total shot arrows : %1$s",
+  "statistiques.statistique.blocks_broken": "Broken blocks : %1$s",
+  "statistiques.statistique.damages_blocked": "Blocked damages : %1$s",
+  "statistiques.statistique.damages_dealt": "Dealt damages : %1$s",
+  "statistiques.statistique.damages_mitigated": "Mitigated damages : %1$s",
+  "statistiques.statistique.entities_killed": "Killed entities : %1$s",
+  "statistiques.statistique.entities_killed_hostile": "Killed hostile entities : %1$s",
+  "statistiques.statistique.entities_killed_neutral": "Killed neutral entities : %1$s",
+  "statistiques.statistique.entities_killed_passive": "Killed passive entities : %1$s",
+  "statistiques.statistique.tridents_hit": "Hit tridents : %1$s",
+  "statistiques.statistique.tridents_missed": "Missed tridents : %1$s",
+  "statistiques.statistique.tridents_thrown": "Total tridents thrown : %1$s"
 }
