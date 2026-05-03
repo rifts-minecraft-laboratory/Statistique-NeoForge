@@ -26,7 +26,7 @@ public class ShieldStatistics extends DefensiveWeaponCore<ShieldStatistics> {
     @Override
     protected Map<String, Statistic> getDefaultStatistics() {
         Map<String, Statistic> statistics = super.getDefaultStatistics();
-        statistics.put(StatisticType.BLOCKED_DAMAGES.getName(), StatisticType.BLOCKED_DAMAGES.getNewStatistic());
+        statistics.put(StatisticType.DAMAGES_BLOCKED.getName(), StatisticType.DAMAGES_BLOCKED.getNewStatistic());
         return statistics;
     }
 }

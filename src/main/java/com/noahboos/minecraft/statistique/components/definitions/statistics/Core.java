@@ -1,6 +1,7 @@
 package com.noahboos.minecraft.statistique.components.definitions.statistics;
 
 import com.mojang.serialization.Codec;
+import com.noahboos.minecraft.statistique.components.utils.statistics.StatisticConverter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,8 @@ public abstract class Core<T extends Core<T>> {
             map -> {
                 T emptyInstance = factory.apply(Map.of());
                 Map<String, Statistic> statistics = new HashMap<>(emptyInstance.getDefaultStatistics());
-                statistics.putAll(map);
+                Map<String, Statistic> convertedMap = StatisticConverter.convertLegacyStatistics(map);
+                statistics.putAll(convertedMap);
                 return factory.apply(statistics);
             },
             Core::toMap
