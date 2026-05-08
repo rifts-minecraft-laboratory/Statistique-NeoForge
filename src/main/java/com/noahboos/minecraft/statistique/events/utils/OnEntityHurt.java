@@ -1,4 +1,4 @@
-package com.noahboos.minecraft.statistique.events.handlers.utils;
+package com.noahboos.minecraft.statistique.events.utils;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.ArmorCore;

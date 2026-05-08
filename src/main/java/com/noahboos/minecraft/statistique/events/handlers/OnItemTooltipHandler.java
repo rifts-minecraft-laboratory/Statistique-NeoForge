@@ -13,9 +13,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class TooltipEventHandler {
+public class OnItemTooltipHandler {
     @SubscribeEvent
-    public static void OnItemTooltip(ItemTooltipEvent event) {
+    public static void listen(ItemTooltipEvent event) {
+        handle(event);
+    }
+
+    private static void handle(ItemTooltipEvent event) {
         List<Component> tooltip = event.getToolTip();
         ItemStack itemStack = event.getItemStack();
         Core<?> statistics = EquipmentComponentMapper.getStatisticsFromItem(itemStack);

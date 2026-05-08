@@ -10,11 +10,15 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 
 import java.util.logging.Logger;
 
-public class BlockEventHandler {
+public class OnBrokenBlockHandler {
     @SubscribeEvent
-    public static void onBrokenBlock(BlockEvent.BreakEvent event) {
+    public static void listen(BlockEvent.BreakEvent event) {
         if (event.getLevel().isClientSide()) return;
 
+        handle(event);
+    }
+
+    private static void handle(BlockEvent.BreakEvent event) {
         ItemStack mainHandItemStack = event.getPlayer().getMainHandItem();
         Core<?> statistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
         if (!(statistics instanceof BlockBreakingToolCore)) return;

@@ -3,7 +3,6 @@ package com.noahboos.minecraft.statistique;
 import com.noahboos.minecraft.statistique.components.DataComponents;
 import com.noahboos.minecraft.statistique.events.handlers.*;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -20,11 +19,13 @@ public class Statistique {
 
     public Statistique(IEventBus modEventBus, ModContainer modContainer) {
         DataComponents.COMPONENTS.register(modEventBus);
-        NeoForge.EVENT_BUS.register(ProjectileEventHandler.class);
-        NeoForge.EVENT_BUS.register(BlockEventHandler.class);
-        NeoForge.EVENT_BUS.register(EntityEventHandler.class);
-        NeoForge.EVENT_BUS.register(ItemEventHandler.class);
-        NeoForge.EVENT_BUS.register(TooltipEventHandler.class);
+        NeoForge.EVENT_BUS.register(OnBrokenBlockHandler.class);
+        NeoForge.EVENT_BUS.register(OnEntityDeathHandler.class);
+        NeoForge.EVENT_BUS.register(OnEntityHurtHandler.class);
+        NeoForge.EVENT_BUS.register(OnItemCraftedHandler.class);
+        NeoForge.EVENT_BUS.register(OnItemPickedUpHandler.class);
+        NeoForge.EVENT_BUS.register(OnItemTooltipHandler.class);
+        NeoForge.EVENT_BUS.register(OnProjectileImpactHandler.class);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 }
