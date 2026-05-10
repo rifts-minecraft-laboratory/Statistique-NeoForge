@@ -18,7 +18,5 @@ public class OnItemCraftedHandler {
     private static void handle(PlayerEvent.ItemCraftedEvent event) {
         ItemStack craftedItemStack = event.getCrafting();
         EquipmentComponentMapper.setStatisticsToItem(craftedItemStack, null);
-
-        Logger.getGlobal().info("Statistics has been added: " + craftedItemStack.getDisplayName().getString());
     }
 }

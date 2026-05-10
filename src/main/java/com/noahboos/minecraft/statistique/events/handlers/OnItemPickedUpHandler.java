@@ -16,7 +16,5 @@ public class OnItemPickedUpHandler {
 
     private static void handle(ItemEntityPickupEvent.Post event) {
         event.getPlayer().getInventory().forEach(pickedUpItem -> EquipmentComponentMapper.setStatisticsToItem(pickedUpItem, null));
-
-        Logger.getGlobal().info("Statistics has been added to all items in inventory.");
     }
 }

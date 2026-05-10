@@ -27,6 +27,5 @@ public class OnBrokenBlockHandler {
         if (updatedStatistics == null) return;
 
         EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, updatedStatistics);
-        Logger.getGlobal().info("Statistics has been updated: " + updatedStatistics.toMap().toString());
     }
 }
