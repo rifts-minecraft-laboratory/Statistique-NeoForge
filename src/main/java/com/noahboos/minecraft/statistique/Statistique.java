@@ -19,7 +19,7 @@ public class Statistique {
 
     public Statistique(IEventBus modEventBus, ModContainer modContainer) {
         DataComponents.COMPONENTS.register(modEventBus);
-        NeoForge.EVENT_BUS.register(OnBrokenBlockHandler.class);
+        NeoForge.EVENT_BUS.register(OnBlockBrokenHandler.class);
         NeoForge.EVENT_BUS.register(OnEntityDeathHandler.class);
         NeoForge.EVENT_BUS.register(OnEntityHurtHandler.class);
         NeoForge.EVENT_BUS.register(OnItemCraftedHandler.class);

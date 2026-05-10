@@ -5,7 +5,7 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.Stat
 import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.BlockBreakingToolCore;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
-public class OnBrokenBlockResolver {
+public class OnBlockBrokenResolver {
     public static Core<?> resolve(BlockEvent.BreakEvent event, Core<?> statistics) {
         if (!(statistics instanceof BlockBreakingToolCore<?> _statistics)) return statistics;
 
