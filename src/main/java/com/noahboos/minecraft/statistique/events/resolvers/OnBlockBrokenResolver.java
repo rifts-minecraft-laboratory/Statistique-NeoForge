@@ -2,7 +2,7 @@ package com.noahboos.minecraft.statistique.events.resolvers;
 
 import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.StatisticType;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.BlockBreakingToolCore;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.block_breaking.BlockBreakingToolCore;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 public class OnBlockBrokenResolver {

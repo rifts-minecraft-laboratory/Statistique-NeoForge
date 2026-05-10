@@ -6,7 +6,7 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.armo
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.ChestplateStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.HelmetStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.LeggingsStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.items.*;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.block_breaking.items.*;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.items.ShieldStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.hybride.items.TridentStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.melee.items.MaceStatistics;
@@ -15,7 +15,6 @@ import com.noahboos.minecraft.statistique.components.definitions.statistics.weap
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.ranged.items.CrossbowStatistics;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.equipment.ArmorType;
 
 public class EquipmentComponentMapper {
     public static Core<?> getStatisticsFromItem(ItemStack itemStack) {

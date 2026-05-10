@@ -1,13 +1,11 @@
 package com.noahboos.minecraft.statistique.components;
 
 import com.noahboos.minecraft.statistique.Statistique;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.Core;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.BootsStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.ChestplateStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.HelmetStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.armors.items.LeggingsStatistics;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.BlockBreakingToolCore;
-import com.noahboos.minecraft.statistique.components.definitions.statistics.block_breaking_tools.items.*;
+import com.noahboos.minecraft.statistique.components.definitions.statistics.tools.block_breaking.items.*;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.defensive.items.ShieldStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.hybride.items.TridentStatistics;
 import com.noahboos.minecraft.statistique.components.definitions.statistics.weapons.offensive.melee.items.MaceStatistics;
