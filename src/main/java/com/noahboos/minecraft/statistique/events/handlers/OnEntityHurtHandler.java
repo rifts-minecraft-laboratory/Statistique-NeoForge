@@ -8,11 +8,15 @@ import com.noahboos.minecraft.statistique.components.utils.statistics.EquipmentC
 import com.noahboos.minecraft.statistique.events.resolvers.OnEntityHurtResolver;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
 import java.util.logging.Logger;
 
 public class OnEntityHurtHandler {
@@ -33,30 +37,17 @@ public class OnEntityHurtHandler {
 
         ItemStack weapon = event.getSource().getWeaponItem();
 
-        ItemStack mainHandItemStack = attacker.getMainHandItem();
-        Core<?> mainHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
-        boolean isMainHandOffensiveWeapon = weapon != null && weapon.is(mainHandItemStack.getItem());
+        Core<?> mainHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(attacker.getMainHandItem());
+        Core<?> offHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(attacker.getOffhandItem());
 
-        if (isMainHandOffensiveWeapon && mainHandStatistics instanceof OffensiveWeaponCore<?>) {
+        if (weapon != null && weapon.is(attacker.getMainHandItem().getItem()) && mainHandStatistics instanceof OffensiveWeaponCore<?>) {
             Core<?> _statistics = OnEntityHurtResolver.resolveAttackerHand(event, mainHandStatistics);
-            if (_statistics != null) {
-                EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, _statistics);
-
-                Logger.getGlobal().info("Attacker's main hand statistics has been updated: " + _statistics.toMap().toString());
-            }
+            if (_statistics != null) EquipmentComponentMapper.setStatisticsToItem(attacker.getMainHandItem(), _statistics);
         }
 
-        ItemStack offHandItemStack = attacker.getOffhandItem();
-        Core<?> offHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(offHandItemStack);
-        boolean isOffHandOffensiveWeapon = weapon != null && weapon.is(offHandItemStack.getItem());
-
-        if (isOffHandOffensiveWeapon && offHandStatistics instanceof OffensiveWeaponCore<?>) {
+        if (weapon != null && weapon.is(attacker.getOffhandItem().getItem()) && offHandStatistics instanceof OffensiveWeaponCore<?>) {
             Core<?> _statistics = OnEntityHurtResolver.resolveAttackerHand(event, offHandStatistics);
-            if (_statistics != null) {
-                EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, _statistics);
-
-                Logger.getGlobal().info("Attacker's off hand statistics has been updated: " + _statistics.toMap().toString());
-            }
+            if (_statistics != null) EquipmentComponentMapper.setStatisticsToItem(attacker.getOffhandItem(), _statistics);
         }
     }
 
@@ -68,30 +59,17 @@ public class OnEntityHurtHandler {
     private static void processVictimHands(LivingDamageEvent.Post event) {
         LivingEntity victim = event.getEntity();
 
-        ItemStack mainHandItemStack = victim.getMainHandItem();
-        Core<?> mainHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(mainHandItemStack);
-        boolean isMainHandDefensiveWeapon = mainHandStatistics instanceof DefensiveWeaponCore<?>;
+        Core<?> mainHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(victim.getMainHandItem());
+        Core<?> offHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(victim.getOffhandItem());
 
-        if (isMainHandDefensiveWeapon) {
+        if (mainHandStatistics instanceof DefensiveWeaponCore<?>) {
             Core<?> _statistics = OnEntityHurtResolver.resolveVictimHand(event, mainHandStatistics);
-            if (_statistics != null) {
-                EquipmentComponentMapper.setStatisticsToItem(mainHandItemStack, _statistics);
-
-                Logger.getGlobal().info("Victim's main hand statistics has been updated: " + _statistics.toMap().toString());
-            }
+            if (_statistics != null) EquipmentComponentMapper.setStatisticsToItem(victim.getMainHandItem(), _statistics);
         }
 
-        ItemStack offHandItemStack = victim.getOffhandItem();
-        Core<?> offHandStatistics = EquipmentComponentMapper.getStatisticsFromItem(offHandItemStack);
-        boolean isOffHandDefensiveWeapon = offHandStatistics instanceof DefensiveWeaponCore<?>;
-
-        if (!isMainHandDefensiveWeapon && isOffHandDefensiveWeapon) {
+        if (!(mainHandStatistics instanceof DefensiveWeaponCore<?>) && offHandStatistics instanceof DefensiveWeaponCore<?>) {
             Core<?> _statistics = OnEntityHurtResolver.resolveVictimHand(event, offHandStatistics);
-            if (_statistics != null) {
-                EquipmentComponentMapper.setStatisticsToItem(offHandItemStack, _statistics);
-
-                Logger.getGlobal().info("Victim's off hand statistics has been updated: " + _statistics.toMap().toString());
-            }
+            if (_statistics != null) EquipmentComponentMapper.setStatisticsToItem(victim.getOffhandItem(), _statistics);
         }
     }
 
@@ -110,11 +88,7 @@ public class OnEntityHurtHandler {
 
             if (statistics instanceof ArmorCore<?>) {
                 Core<?> _statistics = OnEntityHurtResolver.resolveVictimArmor(event, statistics);
-                if (_statistics != null) {
-                    EquipmentComponentMapper.setStatisticsToItem(itemStack, _statistics);
-
-                    Logger.getGlobal().info("Victim's armor statistics has been updated: " + _statistics.toMap().toString());
-                }
+                if (_statistics != null) EquipmentComponentMapper.setStatisticsToItem(itemStack, _statistics);
             }
         });
     }
